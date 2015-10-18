@@ -248,6 +248,16 @@ POSTS & CONTENT STYLES
 }
 
 /* end .entry-content */
+/* line 110, ../scss/breakpoints/_481up.scss */
+.thumb-grid .thumbs {
+  max-width: 660px;
+  margin: 0 auto;
+}
+/* line 113, ../scss/breakpoints/_481up.scss */
+.thumb-grid .thumbs > li {
+  width: 25%;
+}
+
 /*********************
 FOOTER STYLES
 *********************/
@@ -425,7 +435,13 @@ body {
 /*********************
 HEADER STYLES
 *********************/
-/* line 28, ../scss/breakpoints/_1030up.scss */
+/* line 27, ../scss/breakpoints/_1030up.scss */
+#logo {
+  position: static;
+  width: auto;
+  height: auto;
+}
+/* line 31, ../scss/breakpoints/_1030up.scss */
 #logo a {
   text-indent: -9999px;
   height: 140px;
@@ -434,46 +450,50 @@ HEADER STYLES
 /*********************
 NAVIGATION STYLES
 *********************/
-/* line 38, ../scss/breakpoints/_1030up.scss */
+/* line 40, ../scss/breakpoints/_1030up.scss */
+#content {
+  padding-top: 0;
+}
+/* line 42, ../scss/breakpoints/_1030up.scss */
 #content #inner-content {
   margin: 0 auto;
 }
 
-/* line 42, ../scss/breakpoints/_1030up.scss */
+/* line 46, ../scss/breakpoints/_1030up.scss */
 .main-nav {
   left: 0;
   position: static;
   height: auto;
 }
-/* line 46, ../scss/breakpoints/_1030up.scss */
+/* line 50, ../scss/breakpoints/_1030up.scss */
 .main-nav .top-nav {
   overflow: visible;
 }
-/* line 48, ../scss/breakpoints/_1030up.scss */
+/* line 52, ../scss/breakpoints/_1030up.scss */
 .main-nav .top-nav > li {
   float: none;
 }
-/* line 50, ../scss/breakpoints/_1030up.scss */
+/* line 54, ../scss/breakpoints/_1030up.scss */
 .main-nav .top-nav > li a {
   background: #f8f8f8;
   color: black;
   margin-top: 0;
   margin-bottom: -1px;
   padding: 12px 15px;
-  -webkit-transition: color 0.35s ease-in-out;
-  -moz-transition: color 0.35s ease-in-out;
-  -ms-transition: color 0.35s ease-in-out;
-  -o-transition: color 0.35s ease-in-out;
-  transition: color 0.35s ease-in-out;
+  -webkit-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+  -moz-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+  -ms-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+  -o-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+  transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
 }
-/* line 57, ../scss/breakpoints/_1030up.scss */
+/* line 61, ../scss/breakpoints/_1030up.scss */
 .main-nav .top-nav > li a:hover {
   text-decoration: none;
   background-color: #d61940;
   color: white;
 }
 
-/* line 67, ../scss/breakpoints/_1030up.scss */
+/* line 71, ../scss/breakpoints/_1030up.scss */
 .trigger-nav {
   display: none;
 }
@@ -481,13 +501,13 @@ NAVIGATION STYLES
 /*********************
 POSTS & CONTENT STYLES
 *********************/
-/* line 74, ../scss/breakpoints/_1030up.scss */
+/* line 78, ../scss/breakpoints/_1030up.scss */
 #main {
   width: 660px;
   margin: 0;
   padding: 20px 0;
 }
-/* line 78, ../scss/breakpoints/_1030up.scss */
+/* line 82, ../scss/breakpoints/_1030up.scss */
 #main .hentry {
   border: 0;
   -webkit-border-radius: 0;
@@ -497,10 +517,43 @@ POSTS & CONTENT STYLES
   border-radius: 0;
 }
 
+/* line 89, ../scss/breakpoints/_1030up.scss */
+.thumb-grid .thumbs > li {
+  width: 165px;
+  height: 295px;
+  font-size: 11px;
+}
+/* line 94, ../scss/breakpoints/_1030up.scss */
+.thumb-grid .thumbs > li a:hover {
+  background-color: #eaeaea;
+}
+/* line 98, ../scss/breakpoints/_1030up.scss */
+.thumb-grid .thumbs > li .item-thumb-container {
+  height: 240px;
+}
+/* line 101, ../scss/breakpoints/_1030up.scss */
+.thumb-grid .thumbs > li .item-text-container {
+  display: block;
+  height: 45px;
+}
+/* line 105, ../scss/breakpoints/_1030up.scss */
+.thumb-grid .thumbs > li .item-title {
+  max-height: 100%;
+  overflow: hidden;
+  display: block;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  position: relative;
+  top: 50%;
+}
+
 /*********************
 SIDEBARS & ASIDES
 *********************/
-/* line 87, ../scss/breakpoints/_1030up.scss */
+/* line 118, ../scss/breakpoints/_1030up.scss */
 .sidebar {
   border-width: 0 1px;
   width: 320px;
@@ -509,16 +562,16 @@ SIDEBARS & ASIDES
 /*********************
 FOOTER STYLES
 *********************/
-/* line 95, ../scss/breakpoints/_1030up.scss */
+/* line 126, ../scss/breakpoints/_1030up.scss */
 .footer-links {
   display: block;
   float: right;
 }
-/* line 99, ../scss/breakpoints/_1030up.scss */
+/* line 130, ../scss/breakpoints/_1030up.scss */
 .footer-links .footer-nav li {
   float: left;
 }
-/* line 101, ../scss/breakpoints/_1030up.scss */
+/* line 132, ../scss/breakpoints/_1030up.scss */
 .footer-links .footer-nav li a {
   letter-spacing: 3px;
   text-decoration: none;
@@ -528,13 +581,13 @@ FOOTER STYLES
   line-height: 40px;
   padding: 0 10px;
 }
-/* line 109, ../scss/breakpoints/_1030up.scss */
+/* line 140, ../scss/breakpoints/_1030up.scss */
 .footer-links .footer-nav li a:hover {
   background: #a81432;
 }
 
 /* end .footer-links */
-/* line 117, ../scss/breakpoints/_1030up.scss */
+/* line 148, ../scss/breakpoints/_1030up.scss */
 .copyright {
   float: left;
 }

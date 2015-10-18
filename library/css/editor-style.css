@@ -353,10 +353,10 @@ body#tinymce.wp-editor {
   /* NOTE: value of "padding-box" is only supported in Gecko. So
   probably best not to use it. I mean, were you going to anyway? */
   width: 731px;
-  font-family: Bitter, "Georgia", Cambria, Times New Roman, Times, serif;
+  font-family: Merriweather, "Georgia", Cambria, Times New Roman, Times, serif;
   font-size: 100%;
   line-height: 1.5;
-  color: #665555;
+  color: #262626;
   -webkit-font-smoothing: antialiased;
   /*********************
 	LINK STYLES
@@ -687,13 +687,13 @@ body#tinymce.wp-editor p {
 }
 /* line 45, ../scss/editor-style.scss */
 body#tinymce.wp-editor a, body#tinymce.wp-editor a:visited {
-  color: #749aad;
+  color: #d61940;
   /* on hover */
   /* on click */
 }
 /* line 49, ../scss/editor-style.scss */
 body#tinymce.wp-editor a:hover, body#tinymce.wp-editor a:focus, body#tinymce.wp-editor a:visited:hover, body#tinymce.wp-editor a:visited:focus {
-  color: #3d4d59;
+  color: #a81432;
 }
 /* line 58, ../scss/editor-style.scss */
 body#tinymce.wp-editor a:link, body#tinymce.wp-editor a:visited:link {

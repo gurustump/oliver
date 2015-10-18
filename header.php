@@ -54,7 +54,7 @@
 
 		<div id="container">
 
-			<header class="header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+			<header class="header page-header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
 
 				<div id="inner-header" class="inner-header wrap cf">
 

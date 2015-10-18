@@ -27,7 +27,7 @@ $white:             #fff;
 
 $light-gray:        #f8f8f8;
 $gray:              #eaeaea;
-$text-color:        #665555;
+$text-color:        #262626;
 $meta-gray:         #998888;
 
 $tan:               #eceee5;
@@ -39,8 +39,8 @@ $red:				#d61940;
 $blue: 		#749aad;
 $dark-blue: #3d4d59;
 
-$link-color:        $blue;
-$link-hover:      $dark-blue;
+$link-color:        $red;
+$link-hover:      darken($red, 10%);
 
 $border-color:      #ccc;
 $disabled-gray:     #cfcfcf;

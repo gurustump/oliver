@@ -175,6 +175,11 @@ HEADER STYLES
 	margin:0;
 	font-size:20px;
 	background:$red;
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:48px;
 	a {
 		padding:12px 55px 10px 15px;
 		background:$red;
@@ -373,9 +378,14 @@ POSTS & CONTENT STYLES
 *********************/
 #content {
 	margin:1.5em 0;
+	padding-top:48px;
 	#inner-content {
 		margin:0 15px;
 	}
+}
+#main {
+	@include clearfix;
+	margin-bottom:1.5em;
 }
 
 .hentry {
@@ -608,6 +618,28 @@ POSTS & CONTENT STYLES
 // the tag output
 .tags {
 	margin: 0;
+}
+
+.thumb-grid {
+	.thumbs {
+		& > li {
+			float:left;
+			width:33.33333%;
+			text-align:center;
+			font-family:$button;
+			font-size:10px;
+			text-transform:uppercase;
+			a {
+				height:100%;
+				padding:0 4px;
+				display:block;
+				text-decoration:none;
+			}
+			.item-thumb {
+				max-width:100%;
+			}
+		}
+	}
 }
 
 /******************************************************************
@@ -945,6 +977,32 @@ SIDEBARS & ASIDES
 *********************/
 .sidebar-desktop {
 	display:none;
+}
+
+.searchform {
+	.searchform-inner {
+		max-width:400px;
+		position:relative;
+		input[type=search] {
+			padding-right:50px;
+		}
+		button[type=submit] {
+			background:$red url(../images/ic.png) no-repeat center -261px;
+			border:0;
+			@include border-radius(0 3px 3px 0);
+			height:40px;
+			line-height:40px;
+			position:absolute;
+			right:0;
+			top:0;
+			text-indent:-9999px;
+			width:45px;
+			@include transition(background-color, .35s);
+			&:hover {
+				background-color:darken($red, 10%);
+			}
+		}
+	}
 }
 
 .no-widgets {

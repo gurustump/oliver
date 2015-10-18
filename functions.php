@@ -73,8 +73,8 @@ if ( ! isset( $content_width ) ) {
 /************* THUMBNAIL SIZE OPTIONS *************/
 
 // Thumbnail sizes
-add_image_size( 'cover-small', 160, 240, true );
-add_image_size( 'cover-medium', 320, 480, true );
+add_image_size( 'cover-small', 160, 240 );
+add_image_size( 'cover-medium', 320, 480 );
 
 /*
 to add more sizes, simply copy a line from above
@@ -239,9 +239,8 @@ can replace these fonts, change it in your scss files
 and be up and running in seconds.
 */
 function bones_fonts() {
-  wp_enqueue_style('googleFonts', 'https://fonts.googleapis.com/css?family=Bitter:400,400italic,700|Montserrat:400,700|Fira+Sans');
+  wp_enqueue_style('googleFonts', 'https://fonts.googleapis.com/css?family=Bitter:400,400italic,700|Montserrat:400,700|Fira+Sans|Merriweather:400,700,400italic,700italic');
 }
-
 add_action('wp_enqueue_scripts', 'bones_fonts');
 
 require_once( 'cmb-functions.php' );

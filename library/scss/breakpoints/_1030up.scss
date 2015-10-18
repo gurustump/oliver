@@ -25,6 +25,9 @@ HEADER STYLES
 }
 
 #logo {
+	position:static;
+	width:auto;
+	height:auto;
 	a {
 		text-indent:-9999px;
 		height:140px;
@@ -35,6 +38,7 @@ HEADER STYLES
 NAVIGATION STYLES
 *********************/
 #content {
+	padding-top:0;
 	#inner-content {
 		margin:0 auto;
 	}
@@ -53,7 +57,7 @@ NAVIGATION STYLES
 				margin-top:0;
 				margin-bottom:-1px;
 				padding:12px 15px;
-				@include transition(color 0.35s ease-in-out);
+				@include transition(color 0.35s ease-in-out, background-color 0.35s ease-in-out);
 				&:hover {
 					text-decoration:none;
 					background-color:$red;
@@ -78,6 +82,33 @@ POSTS & CONTENT STYLES
 	.hentry {
 		border:0;
 		@include border-radius(0);
+	}
+}
+.thumb-grid {
+	.thumbs {
+		& > li {
+			width:165px;
+			height:295px;
+			font-size:11px;
+			a {
+				&:hover {
+					background-color:$gray;
+				}
+			}
+			.item-thumb-container {
+				height:240px;
+			}
+			.item-text-container {
+				display:block;
+				height:45px;
+			}
+			.item-title {
+				max-height:100%;
+				overflow:hidden;
+				display:block;
+				@include v-center;
+			}
+		}
 	}
 }
 

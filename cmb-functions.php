@@ -63,7 +63,7 @@ function oliver_register_publications_metabox() {
 	 */
 	$cmb_publication = new_cmb2_box( array(
 		'id'            => $prefix . 'metabox',
-		'title'         => __( 'Test Metabox', 'cmb2' ),
+		'title'         => __( 'Publication Details', 'cmb2' ),
 		'object_types'  => array( 'publication', ), // Post type
 		'context'       => 'normal',
 		'priority'      => 'high',

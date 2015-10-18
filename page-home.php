@@ -39,16 +39,20 @@
 								'category_name' => 'featured'
 							));
 							if(count($featuredPubs) > 0) { ?>
-							<div class="featured-publications">
+							<div class="featured-publications thumb-grid">
 								<h2>Featured Pubilcations</h2>
-								<ul>
+								<ul class="thumbs">
 									<?php foreach($featuredPubs as $key => $item) {
-										$itemThumbArray = wp_get_attachment_image_src( get_post_thumbnail_id($item->ID), 'large-thumb');
+										$itemThumbArray = wp_get_attachment_image_src( get_post_thumbnail_id($item->ID), 'cover-small');
 										?>
 										<li>
 											<a href="<?php echo get_the_permalink($item->ID); ?>">
-												<img class="item-thumb" src="<?php echo $itemThumbArray[0]; ?>" />
-												<span class="item-title"><?php echo $item->post_title; ?></span>
+												<span class="item-thumb-container">
+													<img class="item-thumb" src="<?php echo $itemThumbArray[0]; ?>" />
+												</span>
+												<span class="item-text-container">
+													<span class="item-title"><?php echo $item->post_title; ?></span>
+												</span>
 											</a>
 										</li>
 									<?php } ?>
