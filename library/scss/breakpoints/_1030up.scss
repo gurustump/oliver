@@ -1,0 +1,119 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Desktop Stylsheet
+
+This is the desktop size. It's larger than an iPad so it will only
+be seen on the Desktop.
+
+******************************************************************/
+body {
+	font-size:14px;
+}
+
+.wrap {
+	width:1000px;
+}
+
+/*********************
+HEADER STYLES
+*********************/
+.header {
+	.inner-header {
+	}
+}
+
+#logo {
+	a {
+		text-indent:-9999px;
+		height:140px;
+	}
+}
+
+/*********************
+NAVIGATION STYLES
+*********************/
+#content {
+	#inner-content {
+		margin:0 auto;
+	}
+}
+.main-nav {
+	left:0;
+	position:static;
+	height:auto;
+	.top-nav {
+		overflow:visible;
+		& > li {
+			float:none;
+			a {
+				background:$light-gray;
+				color:$black;
+				margin-top:0;
+				margin-bottom:-1px;
+				padding:12px 15px;
+				@include transition(color 0.35s ease-in-out);
+				&:hover {
+					text-decoration:none;
+					background-color:$red;
+					color:$white;
+				}
+			}
+		}
+	}
+}
+
+.trigger-nav {
+	display:none;
+}
+
+/*********************
+POSTS & CONTENT STYLES
+*********************/
+#main {
+	width:660px;
+	margin:0;
+	padding:20px 0;
+	.hentry {
+		border:0;
+		@include border-radius(0);
+	}
+}
+
+/*********************
+SIDEBARS & ASIDES
+*********************/
+.sidebar {
+	border-width:0 1px;
+	width:320px;
+}
+
+/*********************
+FOOTER STYLES
+*********************/
+.footer-links {
+	display:block;
+	float:right;
+	.footer-nav {
+		li {
+			float:left;
+			a {
+				letter-spacing:3px;
+				text-decoration:none;
+				color:#fff;
+				font-size:10px;
+				height:40px;
+				line-height:40px;
+				padding:0 10px;
+				&:hover {
+					background:darken($red, 10%);
+				}
+			}
+		}
+	}
+} /* end .footer-links */
+
+.copyright {
+	float:left;
+}

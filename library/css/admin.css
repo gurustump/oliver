@@ -1,0 +1,26 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Admin Stylesheet
+
+If you like living on the edge, you can add some styles here to
+customize the dashboard and WordPress admin area. This stylesheet
+is empty, but you can just start dropping your styles here to
+start customizing. All admin functions are located in lib/admin/
+
+******************************************************************/
+/* line 16, ../scss/admin.scss */
+.menu-icon-publication .dashicons-before:before {
+  content: "\f330";
+}
+
+/* line 23, ../scss/admin.scss */
+.menu-icon-pub_author .dashicons-before:before {
+  content: "\f338";
+}
+
+/* line 30, ../scss/admin.scss */
+.menu-icon-module .dashicons-before:before {
+  content: "\f509";
+}
