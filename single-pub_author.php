@@ -40,13 +40,57 @@
 								<section class="entry-content cf">
 									<?php
 										// the content (pretty self explanatory huh)
-										the_post_thumbnail('cover-medium');
+										the_post_thumbnail('medium');
 										the_content();
 
 									?>
 								</section> <!-- end article section -->
 
 								<footer class="article-footer">
+									<?php 
+									/*
+									echo '<pre style="border:1px solid #ccc;padding:20px">';
+									print_r(get_the_ID()); 
+									echo '</pre>';
+									*/
+									$pubs = get_posts(array(
+										'post_type' => 'publication',
+										'meta_key' => '_oliver_publications_author_ID',
+										'meta_query' => array (
+											'key' => '_oliver_publications_author_ID',
+											'value' => get_the_ID(),
+											'compare' => 'LIKE',
+										)
+									)); 
+									/*
+									echo '<pre style="border:1px solid #ccc;padding:20px">';
+									print_r($pubs); 
+									echo '</pre>';
+									
+									echo '<pre style="border:1px solid #ccc;padding:20px">';
+									print_r(get_post_meta($pubs[0]->ID)); 
+									echo '</pre>';*/
+									if(count($pubs) > 0) { ?>
+									<div class="author-publications thumb-grid">
+										<h2>Pubilcations by this Author</h2>
+										<ul class="thumbs">
+											<?php foreach($pubs as $key => $item) {
+												$itemThumbArray = wp_get_attachment_image_src( get_post_thumbnail_id($item->ID), 'cover-small');
+												?>
+												<li>
+													<a href="<?php echo get_the_permalink($item->ID); ?>">
+														<span class="item-thumb-container">
+															<img class="item-thumb" src="<?php echo $itemThumbArray[0]; ?>" />
+														</span>
+														<span class="item-text-container">
+															<span class="item-title"><?php echo $item->post_title; ?></span>
+														</span>
+													</a>
+												</li>
+											<?php } ?>
+										</ul>
+									</div>
+									<?php } ?>
 								</footer>
 
 								<?php // comments_template(); ?>
