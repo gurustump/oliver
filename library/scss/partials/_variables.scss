@@ -41,6 +41,11 @@ $dark-blue: #3d4d59;
 
 $link-color:        $red;
 $link-hover:      darken($red, 10%);
+%prettylink {
+	color:$text-color;
+	text-decoration:none;
+	border-bottom:1px solid rgba($link-color, .3);
+}
 
 $border-color:      #ccc;
 $disabled-gray:     #cfcfcf;

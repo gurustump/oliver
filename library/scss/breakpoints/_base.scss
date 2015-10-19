@@ -1131,10 +1131,7 @@ body.single-publication {
 			.author {
 				display:block;
 				a {
-					text-decoration:none;
-					color:$text-color;
-					//color:darken($link-color, 20%);
-					border-bottom:1px solid rgba($link-color, .3);
+					@extend %prettylink;
 				}
 			}
 			.pages, .price, .isbn {
@@ -1150,6 +1147,13 @@ body.single-publication {
 			float:right;
 			margin-left:15px;
 			max-width:55%;
+		}
+	}
+	.article-footer {
+		h2 {
+			a {
+				@extend %prettylink;
+			}
 		}
 	}
 }

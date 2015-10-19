@@ -560,6 +560,13 @@ COLORS
 Need help w/ choosing your colors? Try this site out:
 http://0to255.com/
 *********************/
+/* line 44, ../scss/partials/_variables.scss */
+body.single-publication .hentry .byline .author a, body.single-publication .article-footer h2 a {
+  color: #262626;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(214, 25, 64, 0.3);
+}
+
 /*
 Here's a great tutorial on how to
 use color variables properly:
@@ -2710,23 +2717,17 @@ PUBLICATION PAGE
 body.single-publication .hentry .byline .author {
   display: block;
 }
-/* line 1133, ../scss/breakpoints/_base.scss */
-body.single-publication .hentry .byline .author a {
-  text-decoration: none;
-  color: #262626;
-  border-bottom: 1px solid rgba(214, 25, 64, 0.3);
-}
-/* line 1140, ../scss/breakpoints/_base.scss */
+/* line 1137, ../scss/breakpoints/_base.scss */
 body.single-publication .hentry .byline .pages, body.single-publication .hentry .byline .price, body.single-publication .hentry .byline .isbn {
   font-size: 11px;
 }
-/* line 1143, ../scss/breakpoints/_base.scss */
+/* line 1140, ../scss/breakpoints/_base.scss */
 body.single-publication .hentry .byline .pages, body.single-publication .hentry .byline .price {
   margin-right: 2px;
   border-right: 1px solid #f8f8f8;
   padding-right: 2px;
 }
-/* line 1149, ../scss/breakpoints/_base.scss */
+/* line 1146, ../scss/breakpoints/_base.scss */
 body.single-publication .hentry .wp-post-image {
   float: right;
   margin-left: 15px;
