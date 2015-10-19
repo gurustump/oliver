@@ -121,9 +121,8 @@ jQuery(document).ready(function($) {
 	win.resize(function() {
 		waitForFinalEvent( function() {
 			mobileDeviceBodyClass();
-			if (mobileDeviceType() != 'mobile') {
-				equalHeight($('#main, #sidebar'), true);
-			}
+			setSidebarHeight();
+			headerHeight();
 		}, timeToWaitForLast, 'resizeWindow');
 	});
 	
@@ -169,23 +168,55 @@ jQuery(document).ready(function($) {
 		}
 	});
 	
-	// Equal Heights - group must be a jQuery object
-	function equalHeight(group, reset) {
+	// Equal Heights - group must be a jQuery object. If masterElem is used, items in group will be set to masterElem's height. It should be a jQuery object with only one element in it. If outer is true, masterElem's outerHeight will be used. modifier is just a number to add or subtract to the masterElem height.
+	function equalHeight(group, reset, masterElem, outer, modifier) {
 		if (reset) {
 			group.css('height','auto');
 		}
-		var tallest = 0;
-		group.each(function() {
-			var thisHeight = $(this).outerHeight();
-			console.log(thisHeight);
-			if(thisHeight > tallest) {
-				tallest = thisHeight;
+		if (masterElem.length > 0) {
+			var newHeight = outer ? masterElem.outerHeight() : masterElem.height();
+			if (modifier) {
+				newHeight += modifier;
+				console.log(modifier)
 			}
-		});
-		group.css('height', tallest);
+			console.log(newHeight);
+			group.css('height', newHeight);
+		} else {
+			var tallest = 0;
+			group.each(function() {
+				var thisHeight = $(this).outerHeight();
+				console.log(thisHeight);
+				if(thisHeight > tallest) {
+					tallest = thisHeight;
+				}
+			});
+			group.css('height', tallest);
+		}
 	}
-	if (mobileDeviceType() != 'mobile') {
-		equalHeight($('#main, #sidebar'), true);
+	function setSidebarHeight() {
+		console.log(mobileDeviceType());
+		if (mobileDeviceType() == 'mobile') {
+			$('#main, #sidebar').css('height', 'auto');
+		} else {
+			var modifier = parseInt($('#content').css('margin-bottom').replace('px', ''));
+			equalHeight($('#main, #sidebar'), true, $('#content'));
+			console.log($('#main').height());
+			console.log($('#sidebar').height());
+			console.log($('#content').height());
+		}
 	}
+	setSidebarHeight();
+	
+	function headerHeight() {
+		if (win.scrollTop() > 10) {
+			$('body').addClass('scrolled');
+		} else {
+			$('body').removeClass('scrolled');
+		}
+	}
+	headerHeight();
+	win.scroll(function() {
+		headerHeight();
+	});
 
 }); /* end of as page load scripts */

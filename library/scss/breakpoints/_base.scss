@@ -34,6 +34,7 @@ html.oliveropenpress {
 }
 
 body {
+	height:100%;
 	font-family:$standard;
 	font-size:12px;
 	line-height:1.4;
@@ -42,6 +43,9 @@ body {
   	-webkit-font-smoothing: antialiased;
   	-moz-osx-font-smoothing: grayscale;
 	overflow-x:hidden;
+}
+#container {
+	height:100%;
 }
 
 /********************
@@ -180,6 +184,7 @@ HEADER STYLES
 	left:0;
 	width:100%;
 	height:48px;
+	z-index:9998;
 	a {
 		padding:12px 55px 10px 15px;
 		background:$red;
@@ -377,10 +382,12 @@ and more scalable.
 POSTS & CONTENT STYLES
 *********************/
 #content {
-	margin:1.5em 0;
-	padding-top:48px;
+	min-height:100%;
+	@include box-sizing;
+	margin:0 0 -40px;
+	padding:48px 0 40px;
 	#inner-content {
-		margin:0 15px;
+		margin:1.5em 15px;
 	}
 }
 #main {
@@ -390,7 +397,6 @@ POSTS & CONTENT STYLES
 
 .hentry {
 	background-color: $white;
-	margin-bottom: 1.5em;
 
 	header {
 		margin-bottom:1.5em;
@@ -433,12 +439,13 @@ POSTS & CONTENT STYLES
 
 /* post meta */
 .byline {
-	font-family:$button;
-	border:solid $light-gray;
+	border:solid $gray;
 	border-width:1px 0;
-	color: $meta-gray;
+	color:$text-color;
+	font-family:$heading;
 	font-style: italic;
-	margin: 0;
+	margin:3px 0 0;
+	padding:3px 0;
 
 	time {}
 }
@@ -448,6 +455,9 @@ POSTS & CONTENT STYLES
 	margin-bottom:20px;
 	p {
 		margin: 0 0 1.5em;
+	}
+	*:last-child {
+		margin-bottom:0;
 	}
 
 
@@ -515,9 +525,9 @@ POSTS & CONTENT STYLES
 	blockquote {
 		margin: 0 0 1.5em 0.75em;
 		padding: 0 0 0 0.75em;
-		border-left: 3px solid $blue;
+		border-left:1px dotted $red;
 		font-style: italic;
-		color: $meta-gray;
+		color:$meta-gray;
 
 		&:before {}
 
@@ -621,6 +631,8 @@ POSTS & CONTENT STYLES
 }
 
 .thumb-grid {
+	margin-bottom:1.5em;
+	@include clearfix;
 	.thumbs {
 		& > li {
 			float:left;
@@ -1102,6 +1114,42 @@ html body {
 	&.hide-admin-bar {
 		div#wpadminbar {
 			display:none;
+		}
+	}
+}
+
+/******************************************
+PAGE SPECIFIC
+******************************************/
+
+/*********************
+PUBLICATION PAGE
+*********************/
+body.single-publication {
+	.hentry {
+		.byline {
+			.author {
+				display:block;
+				a {
+					text-decoration:none;
+					color:$text-color;
+					//color:darken($link-color, 20%);
+					border-bottom:1px solid rgba($link-color, .3);
+				}
+			}
+			.pages, .price, .isbn {
+				font-size:11px;
+			}
+			.pages, .price {
+				margin-right:2px;
+				border-right:1px solid $light-gray;
+				padding-right:2px;
+			}
+		}
+		.wp-post-image {
+			float:right;
+			margin-left:15px;
+			max-width:55%;
 		}
 	}
 }

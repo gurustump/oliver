@@ -19,26 +19,43 @@ body {
 /*********************
 HEADER STYLES
 *********************/
-.header {
-	.inner-header {
+.page-header {
+	position:fixed;
+	width:100%;
+	top:0;
+	left:0;
+	& > .inner-header {
+		margin:0 auto;
 	}
 }
 
 #logo {
-	position:static;
+	position:relative;
 	width:auto;
 	height:auto;
 	a {
 		text-indent:-9999px;
-		height:140px;
+		height:162px;
+		@include box-sizing;
+		@include transition(height .35s);
 	}
 }
-
+body.scrolled {
+	#logo {
+		a {
+			height:70px;
+		}
+	}
+	#content {
+		padding-top:70px;
+	}
+}
 /*********************
 NAVIGATION STYLES
 *********************/
 #content {
-	padding-top:0;
+	padding-top:162px;
+	@include transition(padding .35s);
 	#inner-content {
 		margin:0 auto;
 	}

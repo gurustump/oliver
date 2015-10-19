@@ -219,27 +219,28 @@ POSTS & CONTENT STYLES
 *********************/
 /* line 80, ../scss/breakpoints/_481up.scss */
 #content #inner-content {
-  margin: 0 20px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 /* entry content */
-/* line 86, ../scss/breakpoints/_481up.scss */
+/* line 87, ../scss/breakpoints/_481up.scss */
 .entry-content {
   /* at this larger size, we can start to align images */
 }
-/* line 90, ../scss/breakpoints/_481up.scss */
+/* line 91, ../scss/breakpoints/_481up.scss */
 .entry-content .alignleft, .entry-content img.alignleft {
   margin-right: 1.5em;
   display: inline;
   float: left;
 }
-/* line 95, ../scss/breakpoints/_481up.scss */
+/* line 96, ../scss/breakpoints/_481up.scss */
 .entry-content .alignright, .entry-content img.alignright {
   margin-left: 1.5em;
   display: inline;
   float: right;
 }
-/* line 100, ../scss/breakpoints/_481up.scss */
+/* line 101, ../scss/breakpoints/_481up.scss */
 .entry-content .aligncenter, .entry-content img.aligncenter {
   margin-right: auto;
   margin-left: auto;
@@ -248,12 +249,12 @@ POSTS & CONTENT STYLES
 }
 
 /* end .entry-content */
-/* line 110, ../scss/breakpoints/_481up.scss */
+/* line 111, ../scss/breakpoints/_481up.scss */
 .thumb-grid .thumbs {
   max-width: 660px;
   margin: 0 auto;
 }
-/* line 113, ../scss/breakpoints/_481up.scss */
+/* line 114, ../scss/breakpoints/_481up.scss */
 .thumb-grid .thumbs > li {
   width: 25%;
 }
@@ -301,16 +302,12 @@ HEADER STYLES
 /*********************
 POSTS & CONTENT STYLES
 *********************/
-/* line 46, ../scss/breakpoints/_768up.scss */
-#content {
-  margin: 0;
-}
-/* line 48, ../scss/breakpoints/_768up.scss */
+/* line 47, ../scss/breakpoints/_768up.scss */
 #content #inner-content {
   margin: 0 auto;
 }
 
-/* line 52, ../scss/breakpoints/_768up.scss */
+/* line 51, ../scss/breakpoints/_768up.scss */
 #main {
   float: right;
   width: 100%;
@@ -322,7 +319,7 @@ POSTS & CONTENT STYLES
   padding: 20px 20px 20px 280px;
   margin-left: -280px;
 }
-/* line 58, ../scss/breakpoints/_768up.scss */
+/* line 57, ../scss/breakpoints/_768up.scss */
 #main .hentry {
   border: 0;
   -webkit-border-radius: 0;
@@ -335,7 +332,7 @@ POSTS & CONTENT STYLES
 /*********************
 SIDEBARS & ASIDES
 *********************/
-/* line 68, ../scss/breakpoints/_768up.scss */
+/* line 67, ../scss/breakpoints/_768up.scss */
 .sidebar {
   border: solid #cccccc;
   border-width: 0 1px 0 0;
@@ -351,33 +348,33 @@ SIDEBARS & ASIDES
   box-sizing: border-box;
 }
 
-/* line 78, ../scss/breakpoints/_768up.scss */
+/* line 77, ../scss/breakpoints/_768up.scss */
 .sidebar-desktop {
   display: block;
 }
 
-/* line 81, ../scss/breakpoints/_768up.scss */
+/* line 80, ../scss/breakpoints/_768up.scss */
 .sidebar-mobile {
   display: none;
 }
 
-/* line 85, ../scss/breakpoints/_768up.scss */
+/* line 84, ../scss/breakpoints/_768up.scss */
 .widgettitle {
   border-bottom: 1px solid #eaeaea;
   margin-bottom: 0.75em;
 }
 
-/* line 90, ../scss/breakpoints/_768up.scss */
+/* line 89, ../scss/breakpoints/_768up.scss */
 .widget {
   padding: 0 15px;
   margin: 2.2em 0;
 }
-/* line 95, ../scss/breakpoints/_768up.scss */
+/* line 94, ../scss/breakpoints/_768up.scss */
 .widget ul li {
   margin-bottom: 0.75em;
   /* deep nesting */
 }
-/* line 103, ../scss/breakpoints/_768up.scss */
+/* line 102, ../scss/breakpoints/_768up.scss */
 .widget ul li ul {
   margin-top: 0.75em;
   padding-left: 1em;
@@ -402,7 +399,7 @@ you'll probably need to do quite a bit
 of overriding here if you styled them for
 mobile. Make sure to double check these!
 */
-/* line 211, ../scss/breakpoints/_768up.scss */
+/* line 210, ../scss/breakpoints/_768up.scss */
 .footer-links ul li {
   /*
   be careful with the depth of your menus.
@@ -435,45 +432,81 @@ body {
 /*********************
 HEADER STYLES
 *********************/
+/* line 22, ../scss/breakpoints/_1030up.scss */
+.page-header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
 /* line 27, ../scss/breakpoints/_1030up.scss */
+.page-header > .inner-header {
+  margin: 0 auto;
+}
+
+/* line 32, ../scss/breakpoints/_1030up.scss */
 #logo {
-  position: static;
+  position: relative;
   width: auto;
   height: auto;
 }
-/* line 31, ../scss/breakpoints/_1030up.scss */
+/* line 36, ../scss/breakpoints/_1030up.scss */
 #logo a {
   text-indent: -9999px;
-  height: 140px;
+  height: 162px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: height 0.35s;
+  -moz-transition: height 0.35s;
+  -ms-transition: height 0.35s;
+  -o-transition: height 0.35s;
+  transition: height 0.35s;
+}
+
+/* line 45, ../scss/breakpoints/_1030up.scss */
+body.scrolled #logo a {
+  height: 70px;
+}
+/* line 49, ../scss/breakpoints/_1030up.scss */
+body.scrolled #content {
+  padding-top: 70px;
 }
 
 /*********************
 NAVIGATION STYLES
 *********************/
-/* line 40, ../scss/breakpoints/_1030up.scss */
+/* line 56, ../scss/breakpoints/_1030up.scss */
 #content {
-  padding-top: 0;
+  padding-top: 162px;
+  -webkit-transition: padding 0.35s;
+  -moz-transition: padding 0.35s;
+  -ms-transition: padding 0.35s;
+  -o-transition: padding 0.35s;
+  transition: padding 0.35s;
 }
-/* line 42, ../scss/breakpoints/_1030up.scss */
+/* line 59, ../scss/breakpoints/_1030up.scss */
 #content #inner-content {
   margin: 0 auto;
 }
 
-/* line 46, ../scss/breakpoints/_1030up.scss */
+/* line 63, ../scss/breakpoints/_1030up.scss */
 .main-nav {
   left: 0;
   position: static;
   height: auto;
 }
-/* line 50, ../scss/breakpoints/_1030up.scss */
+/* line 67, ../scss/breakpoints/_1030up.scss */
 .main-nav .top-nav {
   overflow: visible;
 }
-/* line 52, ../scss/breakpoints/_1030up.scss */
+/* line 69, ../scss/breakpoints/_1030up.scss */
 .main-nav .top-nav > li {
   float: none;
 }
-/* line 54, ../scss/breakpoints/_1030up.scss */
+/* line 71, ../scss/breakpoints/_1030up.scss */
 .main-nav .top-nav > li a {
   background: #f8f8f8;
   color: black;
@@ -486,14 +519,14 @@ NAVIGATION STYLES
   -o-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
   transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
 }
-/* line 61, ../scss/breakpoints/_1030up.scss */
+/* line 78, ../scss/breakpoints/_1030up.scss */
 .main-nav .top-nav > li a:hover {
   text-decoration: none;
   background-color: #d61940;
   color: white;
 }
 
-/* line 71, ../scss/breakpoints/_1030up.scss */
+/* line 88, ../scss/breakpoints/_1030up.scss */
 .trigger-nav {
   display: none;
 }
@@ -501,13 +534,13 @@ NAVIGATION STYLES
 /*********************
 POSTS & CONTENT STYLES
 *********************/
-/* line 78, ../scss/breakpoints/_1030up.scss */
+/* line 95, ../scss/breakpoints/_1030up.scss */
 #main {
   width: 660px;
   margin: 0;
   padding: 20px 0;
 }
-/* line 82, ../scss/breakpoints/_1030up.scss */
+/* line 99, ../scss/breakpoints/_1030up.scss */
 #main .hentry {
   border: 0;
   -webkit-border-radius: 0;
@@ -517,26 +550,26 @@ POSTS & CONTENT STYLES
   border-radius: 0;
 }
 
-/* line 89, ../scss/breakpoints/_1030up.scss */
+/* line 106, ../scss/breakpoints/_1030up.scss */
 .thumb-grid .thumbs > li {
   width: 165px;
   height: 295px;
   font-size: 11px;
 }
-/* line 94, ../scss/breakpoints/_1030up.scss */
+/* line 111, ../scss/breakpoints/_1030up.scss */
 .thumb-grid .thumbs > li a:hover {
   background-color: #eaeaea;
 }
-/* line 98, ../scss/breakpoints/_1030up.scss */
+/* line 115, ../scss/breakpoints/_1030up.scss */
 .thumb-grid .thumbs > li .item-thumb-container {
   height: 240px;
 }
-/* line 101, ../scss/breakpoints/_1030up.scss */
+/* line 118, ../scss/breakpoints/_1030up.scss */
 .thumb-grid .thumbs > li .item-text-container {
   display: block;
   height: 45px;
 }
-/* line 105, ../scss/breakpoints/_1030up.scss */
+/* line 122, ../scss/breakpoints/_1030up.scss */
 .thumb-grid .thumbs > li .item-title {
   max-height: 100%;
   overflow: hidden;
@@ -553,7 +586,7 @@ POSTS & CONTENT STYLES
 /*********************
 SIDEBARS & ASIDES
 *********************/
-/* line 118, ../scss/breakpoints/_1030up.scss */
+/* line 135, ../scss/breakpoints/_1030up.scss */
 .sidebar {
   border-width: 0 1px;
   width: 320px;
@@ -562,16 +595,16 @@ SIDEBARS & ASIDES
 /*********************
 FOOTER STYLES
 *********************/
-/* line 126, ../scss/breakpoints/_1030up.scss */
+/* line 143, ../scss/breakpoints/_1030up.scss */
 .footer-links {
   display: block;
   float: right;
 }
-/* line 130, ../scss/breakpoints/_1030up.scss */
+/* line 147, ../scss/breakpoints/_1030up.scss */
 .footer-links .footer-nav li {
   float: left;
 }
-/* line 132, ../scss/breakpoints/_1030up.scss */
+/* line 149, ../scss/breakpoints/_1030up.scss */
 .footer-links .footer-nav li a {
   letter-spacing: 3px;
   text-decoration: none;
@@ -581,13 +614,13 @@ FOOTER STYLES
   line-height: 40px;
   padding: 0 10px;
 }
-/* line 140, ../scss/breakpoints/_1030up.scss */
+/* line 157, ../scss/breakpoints/_1030up.scss */
 .footer-links .footer-nav li a:hover {
   background: #a81432;
 }
 
 /* end .footer-links */
-/* line 148, ../scss/breakpoints/_1030up.scss */
+/* line 165, ../scss/breakpoints/_1030up.scss */
 .copyright {
   float: left;
 }
