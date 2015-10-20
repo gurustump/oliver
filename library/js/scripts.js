@@ -123,6 +123,7 @@ jQuery(document).ready(function($) {
 			mobileDeviceBodyClass();
 			setSidebarHeight();
 			headerHeight();
+			thumbGrid();
 		}, timeToWaitForLast, 'resizeWindow');
 	});
 	
@@ -200,9 +201,6 @@ jQuery(document).ready(function($) {
 		} else {
 			var modifier = parseInt($('#content').css('margin-bottom').replace('px', ''));
 			equalHeight($('#main, #sidebar'), true, $('#content'));
-			console.log($('#main').height());
-			console.log($('#sidebar').height());
-			console.log($('#content').height());
 		}
 	}
 	setSidebarHeight();
@@ -218,5 +216,48 @@ jQuery(document).ready(function($) {
 	win.scroll(function() {
 		headerHeight();
 	});
+	
+	function thumbGrid() {
+		gridCols = win.width() < 481 ? 3 : 4;
+		var grid = $('.THUMB_GRID');
+		var gridInner = grid.find('.THUMB_GRID_INNER');
+		var thumbList = grid.find('.THUMBS');
+		var thumbs = thumbList.children('li');
+		var thumbNav = grid.find('.THUMB_GRID_NAV');
+		var thumbWidth = gridInner.width() / gridCols;
+		var panelWidth = thumbWidth * thumbs.length;
+		panelWidth = panelWidth >= gridInner.width() ? panelWidth : gridInner.width();
+		thumbs.width(thumbWidth);
+		thumbList.width(panelWidth);
+		thumbNavLinkVisibility();
+		thumbNav.find('a').click(function(e) {
+			e.preventDefault();
+			directionMultiplier = $(this).hasClass('PREV') ? '-1' : '1';
+			gridInner.animate({
+				scrollLeft: gridInner.scrollLeft() + (panelWidth * ($(this).hasClass('PREV') ? '-1' : '1'))
+			}, 400, function() {
+				console.log(gridInner.scrollLeft());
+				thumbNavLinkVisibility();
+			});
+		});
+		if (panelWidth <= gridInner.width()) {
+			thumbNav.addClass('inactive');
+		} else {
+			thumbNav.removeClass('inactive');
+		}
+	}
+	thumbGrid();
+	
+	function thumbNavLinkVisibility() {
+		var grid = $('.THUMB_GRID');
+		var gridInner = grid.find('.THUMB_GRID_INNER');
+		var thumbList = grid.find('.THUMBS');
+		var thumbNav = grid.find('.THUMB_GRID_NAV');
+		if (gridInner.scrollLeft() == 0) {
+			thumbNav.find('.PREV').addClass('inactive').siblings().removeClass('inactive');
+		} else if (gridInner.scrollLeft() + gridInner.width() >= thumbList.width()) {
+			thumbNav.find('.NEXT').addClass('inactive').siblings().removeClass('inactive');
+		}
+	}
 
 }); /* end of as page load scripts */

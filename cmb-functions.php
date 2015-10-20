@@ -103,10 +103,10 @@ function oliver_register_publications_metabox() {
 
 	/*
 	$cmb_publication->add_field( array(
-		'name'       => __( 'Year of Publication', 'cmb2' ),
-		'desc'       => __( 'Enter the year of publication.', 'cmb2' ),
-		'id'         => $prefix . 'year',
-		'type'       => 'text_small',
+		'name'       => __( 'Date of Publication', 'cmb2' ),
+		'desc'       => __( 'Enter the date of publication.', 'cmb2' ),
+		'id'         => $prefix . 'pub_date',
+		'type'       => 'text_date',
 	) );
 	*/
 

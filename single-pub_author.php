@@ -70,27 +70,9 @@
 									echo '<pre style="border:1px solid #ccc;padding:20px">';
 									print_r(get_post_meta($pubs[0]->ID)); 
 									echo '</pre>';*/
-									if(count($pubs) > 0) { ?>
-									<div class="author-publications thumb-grid">
-										<h2>Pubilcations by this Author</h2>
-										<ul class="thumbs">
-											<?php foreach($pubs as $key => $item) {
-												$itemThumbArray = wp_get_attachment_image_src( get_post_thumbnail_id($item->ID), 'cover-small');
-												?>
-												<li>
-													<a href="<?php echo get_the_permalink($item->ID); ?>">
-														<span class="item-thumb-container">
-															<img class="item-thumb" src="<?php echo $itemThumbArray[0]; ?>" />
-														</span>
-														<span class="item-text-container">
-															<span class="item-title"><?php echo $item->post_title; ?></span>
-														</span>
-													</a>
-												</li>
-											<?php } ?>
-										</ul>
-									</div>
-									<?php } ?>
+									if(count($pubs) > 0) { 
+										thumbGrid($pubs, 'Works by this Author', 'author-publications'); 
+									} ?>
 								</footer>
 
 								<?php // comments_template(); ?>

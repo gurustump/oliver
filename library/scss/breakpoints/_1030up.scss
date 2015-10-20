@@ -35,15 +35,44 @@ HEADER STYLES
 	height:auto;
 	a {
 		text-indent:-9999px;
-		height:162px;
+		height:150px;
+		position:relative;
 		@include box-sizing;
 		@include transition(height .35s);
+		.desktop-logo {
+			position:absolute;
+			left:0;
+			bottom:0;
+			display:block;
+			background:url(../images/ampersand-logo.png) no-repeat 0 100%;
+			width:185px;
+			height:100%;
+			/*background:url(../images/hairlines_140px.png) no-repeat 0 100%;
+			width:266px;
+			height:140px;*/
+			background-size:100%;
+			@include transition(width .35s);
+		}
+		.logo-text {
+			position:absolute;
+			left:340px;
+			width:535px;
+			max-width:none;
+			height:100%;
+			@include transition(width .35s);
+		}
 	}
 }
 body.scrolled {
 	#logo {
 		a {
 			height:70px;
+			.desktop-logo {
+				width:90px;
+			}
+			.logo-text {
+				width:420px;
+			}
 		}
 	}
 	#content {
@@ -54,7 +83,7 @@ body.scrolled {
 NAVIGATION STYLES
 *********************/
 #content {
-	padding-top:162px;
+	padding-top:150px;
 	@include transition(padding .35s);
 	#inner-content {
 		margin:0 auto;
@@ -95,7 +124,7 @@ POSTS & CONTENT STYLES
 #main {
 	width:660px;
 	margin:0;
-	padding:20px 0;
+	padding:35px 0 20px;
 	.hentry {
 		border:0;
 		@include border-radius(0);
@@ -105,7 +134,7 @@ POSTS & CONTENT STYLES
 	.thumbs {
 		& > li {
 			width:165px;
-			height:295px;
+			height:299px;
 			font-size:11px;
 			a {
 				&:hover {
@@ -124,6 +153,38 @@ POSTS & CONTENT STYLES
 				overflow:hidden;
 				display:block;
 				@include v-center;
+			}
+		}
+	}
+	.thumb-grid-nav {
+		a {
+			padding-left:6px;
+			padding-right:6px;
+			@include transition(background-color .35s, color .35s, opacity .35s);
+			&:after {
+				@include transition(border-color .35s);
+			}
+			&.prev {
+				padding-left:6px;
+				padding-right:8px;
+				&:hover {
+					&:after {
+						border-right-color:$white;
+					}
+				}
+			}
+			&.next {
+				padding-left:8px;
+				padding-right:6px;
+				&:hover {
+					&:after {
+						border-left-color:$white;
+					}
+				}
+			}
+			&:hover {
+				background-color:$red;
+				color:$white;
 			}
 		}
 	}

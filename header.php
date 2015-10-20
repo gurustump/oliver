@@ -62,7 +62,7 @@
 						$logoTag = is_front_page() || is_home() ? 'h1' : 'p';
 					?>
 					<<?php echo $logoTag; ?> id="logo" class="h1" itemscope itemtype="http://schema.org/Organization">
-						<a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a>
+						<a href="<?php echo home_url(); ?>" rel="nofollow"><span class="desktop-logo"></span><span class="logo-text"><?php bloginfo('name'); ?></span></a>
 					</<?php echo $logoTag; ?>>
 				</div>
 				<a class="trigger-nav TRIGGER_NAV" href="#">

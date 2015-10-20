@@ -239,7 +239,7 @@ can replace these fonts, change it in your scss files
 and be up and running in seconds.
 */
 function bones_fonts() {
-  wp_enqueue_style('googleFonts', 'https://fonts.googleapis.com/css?family=Bitter:400,400italic,700|Montserrat:400,700|Fira+Sans|Merriweather:400,700,400italic,700italic');
+  wp_enqueue_style('googleFonts', 'https://fonts.googleapis.com/css?family=Bitter:400,400italic,700|Montserrat:400,700|Fira+Sans:300,400|Merriweather:400,700,400italic,700italic');
 }
 add_action('wp_enqueue_scripts', 'bones_fonts');
 
@@ -272,6 +272,33 @@ function removeArticle($string) {
 	} else {
 		return $string;
 	}
+}
+
+function thumbGrid($itemObject, $title, $className) {
+	echo '<div class="'.$className.' thumb-grid THUMB_GRID">';
+		echo'<h2>'.$title.'</h2>';
+		echo'<div class="thumb-grid-inner THUMB_GRID_INNER">';
+			echo '<ul class="thumbs THUMBS">';
+				foreach($itemObject as $key => $item) {
+					$itemThumbArray = wp_get_attachment_image_src( get_post_thumbnail_id($item->ID), 'cover-small');
+					echo '<li>';
+						echo '<a href="'.get_the_permalink($item->ID).'">';
+							echo '<span class="item-thumb-container">';
+								echo '<img class="item-thumb" src="'.$itemThumbArray[0].'" />';
+							echo '</span>';
+							echo '<span class="item-text-container">';
+								echo '<span class="item-title">'.$item->post_title.'</span>';
+							echo '</span>';
+						echo '</a>';
+					echo '</li>';
+				}
+			echo '</ul>';
+		echo '</div>';
+		echo '<div class="thumb-grid-nav THUMB_GRID_NAV">';
+			echo '<a href="#" class="prev PREV">Previous</a>';
+			echo '<a href="#" class="next NEXT">Next</a>';
+		echo '</div>';
+	echo '</div>';
 }
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>

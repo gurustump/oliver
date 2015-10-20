@@ -108,11 +108,32 @@ POSTS & CONTENT STYLES
 } /* end .entry-content */
 
 .thumb-grid {
-	.thumbs {
+	.thumb-grid-inner {
 		max-width:660px;
+	}
+	.thumbs {
 		margin:0 auto;
 		& > li {
 			width:25%;
+		}
+	}
+}
+.row-index {
+	.row-index-inner {
+		& > ul {
+			& > li {
+				@include clearfix;
+				.img-container {
+					float:left;
+				}
+				.item-content {
+					float:left;
+					width:100%;
+					padding-left:175px;
+					margin-left:-175px;
+					@include box-sizing;
+				}
+			}
 		}
 	}
 }

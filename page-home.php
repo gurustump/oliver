@@ -35,30 +35,12 @@
 							<?php 
 							$featuredPubs = get_posts(array(
 								'post_type' => array('publication'),
-								'numberposts' => 6,
+								'numberposts' => 12,
 								'category_name' => 'featured'
 							));
-							if(count($featuredPubs) > 0) { ?>
-							<div class="featured-publications thumb-grid">
-								<h2>Featured Pubilcations</h2>
-								<ul class="thumbs">
-									<?php foreach($featuredPubs as $key => $item) {
-										$itemThumbArray = wp_get_attachment_image_src( get_post_thumbnail_id($item->ID), 'cover-small');
-										?>
-										<li>
-											<a href="<?php echo get_the_permalink($item->ID); ?>">
-												<span class="item-thumb-container">
-													<img class="item-thumb" src="<?php echo $itemThumbArray[0]; ?>" />
-												</span>
-												<span class="item-text-container">
-													<span class="item-title"><?php echo $item->post_title; ?></span>
-												</span>
-											</a>
-										</li>
-									<?php } ?>
-								</ul>
-							</div>
-							<?php } ?>
+							if(count($featuredPubs) > 0) { 
+								thumbGrid($featuredPubs, 'Featured Publications', 'featured-publications');
+							} ?>
 							
 						</main>
 
