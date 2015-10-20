@@ -25,9 +25,10 @@
 							print_r($meta); 
 							echo '</pre>'; */
 							$author = get_post($meta[_oliver_publications_author_ID][0]);
-							/* echo '<pre style="border:1px solid #ccc;padding:20px">';
-							print_r($author); 
-							echo '</pre>'; */
+							$links = get_post_meta(get_the_ID(), '_oliver_publications_links', true);
+							/*echo '<pre style="border:1px solid #ccc;padding:20px">';
+							print_r($links); 
+							echo '</pre>';*/
 							?>
 							<article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article">
 
@@ -44,11 +45,25 @@
 								</header>
 
 								<section class="entry-content cf">
+									<div class="post-thumb-container">
+										<?php if ($links) { ?>
+											<div class="link-container-upper">
+												<a href="<?php echo $links[0][url]; ?>" class="btn btn-external btn-<?php echo $links[0][css_select]; ?>" target="_blank"><?php echo $links[0][title]; ?></a>
+											</div>
+										<?php } ?>
+										<?php the_post_thumbnail('cover-medium'); ?>
+										<?php if (count($links) > 1) { ?>
+											<div class="link-container-lower">
+												<?php foreach($links as $key => $link) { 
+													if ($key != 0) {
+													?>
+													<a href="<?php echo $link[url]; ?>" class="btn btn-external btn-<?php echo $link[css_select]; ?>" target="_blank"><?php echo $link[title]; ?></a>
+												<?php } } ?>
+											</div>
+										<?php } ?>
+									</div>
 									<?php
-										// the content (pretty self explanatory huh)
-										the_post_thumbnail('cover-medium');
 										the_content();
-
 									?>
 								</section> <!-- end article section -->
 

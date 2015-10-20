@@ -38,12 +38,10 @@
 								</header>
 
 								<section class="entry-content cf">
-									<?php
-										// the content (pretty self explanatory huh)
-										the_post_thumbnail('medium');
-										the_content();
-
-									?>
+									<div class="post-thumb-container">
+										<?php the_post_thumbnail('medium'); ?>
+									</div>
+									<?php the_content(); ?>
 								</section> <!-- end article section -->
 
 								<footer class="article-footer">

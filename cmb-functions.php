@@ -100,6 +100,41 @@ function oliver_register_publications_metabox() {
 		'id'         => $prefix . 'isbn',
 		'type'       => 'text_small',
 	) );
+	
+	$link_group_field = $cmb_publication->add_field( array(
+		'id'          => $prefix . 'links',
+		'type'        => 'group',
+		'description' => __( 'Add links to purchase this publication', 'cmb2' ),
+		'options'     => array(
+			'group_title'   => __( 'Purchase Links {#}', 'cmb2' ), // {#} gets replaced by row number
+			'add_button'    => __( 'Add Another Link', 'cmb2' ),
+			'remove_button' => __( 'Remove Link', 'cmb2' ),
+			'sortable'      => true, // beta
+		),
+	) );
+	$cmb_publication->add_group_field( $link_group_field, array(
+		'name'       => __( 'Link Title', 'cmb2' ),
+		'id'         => 'title',
+		'description' => __( 'This is the text of the button or link that will appear to site visitors', 'cmb2' ),
+		'type'       => 'text',
+	) );
+	$cmb_publication->add_group_field( $link_group_field, array(
+		'name'       => __( 'Link URL', 'cmb2' ),
+		'id'         => 'url',
+		'description' => __( 'The full address of the link, including the "http://" or "https://" at the beginning', 'cmb2' ),
+		'type'       => 'text',
+	) );
+	$cmb_publication->add_group_field( $link_group_field, array(
+		'name'             => __( 'Button Type', 'cmb2' ),
+		'desc'             => __( 'Choose the type of button for this link. If set to "None," the default button style will be used.', 'cmb2' ),
+		'id'               => 'css_select',
+		'type'             => 'select',
+		'show_option_none' => true,
+		'options'          => array(
+			'amazon' 			=> __( 'Amazon', 'cmb2' ),
+			'bn'   => __( 'Barnes &amp; Noble', 'cmb2' ),
+		),
+	) );
 
 	/*
 	$cmb_publication->add_field( array(

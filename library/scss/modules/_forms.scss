@@ -116,9 +116,11 @@ input[type="password"] {
 
 // textareas
 textarea {
-  max-width: 100%;
-  min-height: 120px;
-  line-height: 1.5em;
+	max-width:100%;
+	min-height:120px;
+	line-height:1.5em;
+	padding-top:8px;
+	padding-bottom:8px;
 }
 
 // selects
