@@ -1960,8 +1960,8 @@ and more scalable.
 .main-nav .top-nav > li > a {
   outline: none;
   padding: 12px;
-  height: 31px;
-  line-height: 31px;
+  height: 28px;
+  line-height: 28px;
 }
 /* line 288, ../scss/breakpoints/_base.scss */
 .main-nav .top-nav > li.current-menu-item > a {

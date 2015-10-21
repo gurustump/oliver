@@ -262,10 +262,11 @@ jQuery(document).ready(function($) {
 		var gridInner = grid.find('.THUMB_GRID_INNER');
 		var thumbList = grid.find('.THUMBS');
 		var thumbNav = grid.find('.THUMB_GRID_NAV');
+		thumbNav.find('a').removeClass('inactive');
 		if (gridInner.scrollLeft() == 0) {
-			thumbNav.find('.PREV').addClass('inactive').siblings().removeClass('inactive');
+			thumbNav.find('.PREV').addClass('inactive');
 		} else if (gridInner.scrollLeft() + gridInner.width() >= thumbList.width()) {
-			thumbNav.find('.NEXT').addClass('inactive').siblings().removeClass('inactive');
+			thumbNav.find('.NEXT').addClass('inactive');
 		}
 	}
 
