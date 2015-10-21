@@ -10,15 +10,16 @@
 								<header class="entry-header article-header">
 
 									<h3 class="search-title entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
-
+										<?php /*
                   						<p class="byline entry-meta vcard">
                     							<?php printf( __( 'Posted %1$s by %2$s', 'bonestheme' ),
-                   							    /* the time the post was published */
+                   							    // the time the post was published 
                    							    '<time class="updated entry-time" datetime="' . get_the_time('Y-m-d') . '" itemprop="datePublished">' . get_the_time(get_option('date_format')) . '</time>',
-                      							    /* the author of the post */
+                      							    // the author of the post 
                        							    '<span class="by">by</span> <span class="entry-author author" itemprop="author" itemscope itemptype="http://schema.org/Person">' . get_the_author_link( get_the_author_meta( 'ID' ) ) . '</span>'
                     							); ?>
                   						</p>
+										*/ ?>
 
 								</header>
 
@@ -26,7 +27,8 @@
 										<?php the_excerpt( '<span class="read-more">' . __( 'Read more &raquo;', 'bonestheme' ) . '</span>' ); ?>
 
 								</section>
-
+								
+								<?php /*
 								<footer class="article-footer">
 
 									<?php if(get_the_category_list(', ') != ''): ?>
@@ -36,6 +38,7 @@
                  					<?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
 
 								</footer> <!-- end article footer -->
+								*/ ?>
 
 							</article>
 

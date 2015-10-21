@@ -3104,6 +3104,16 @@ body.blog #main .hentry {
   margin-bottom: 2.5em;
 }
 
+/* line 1373, ../scss/breakpoints/_base.scss */
+body.search-results #main .entry-header {
+  margin-bottom: .5em;
+}
+/* line 1376, ../scss/breakpoints/_base.scss */
+body.search-results #main .entry-title {
+  border-bottom: 1px solid #eaeaea;
+  margin-bottom: .5em;
+}
+
 /*********************
 LARGER MOBILE DEVICES
 This is for devices like the Galaxy Note or something that's
