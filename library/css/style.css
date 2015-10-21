@@ -3114,6 +3114,15 @@ body.search-results #main .entry-title {
   margin-bottom: .5em;
 }
 
+/* line 1384, ../scss/breakpoints/_base.scss */
+body.page-template-page-list .entry-content .byline {
+  margin-bottom: 1em;
+}
+/* line 1387, ../scss/breakpoints/_base.scss */
+body.page-template-page-list .entry-content .item-body {
+  margin-top: 1em;
+}
+
 /*********************
 LARGER MOBILE DEVICES
 This is for devices like the Galaxy Note or something that's
@@ -3313,8 +3322,9 @@ you can add resource intensive styles.
     box-sizing: border-box;
     padding: 20px 20px 20px 280px;
     margin-left: -280px;
+    margin-bottom: 0;
   }
-  /* line 58, ../scss/breakpoints/_768up.scss */
+  /* line 59, ../scss/breakpoints/_768up.scss */
   #main .hentry {
     border: 0;
     -webkit-border-radius: 0;
@@ -3327,7 +3337,7 @@ you can add resource intensive styles.
   /*********************
   SIDEBARS & ASIDES
   *********************/
-  /* line 68, ../scss/breakpoints/_768up.scss */
+  /* line 69, ../scss/breakpoints/_768up.scss */
   .sidebar {
     border: solid #cccccc;
     border-width: 0 1px 0 0;
@@ -3343,39 +3353,39 @@ you can add resource intensive styles.
     box-sizing: border-box;
   }
 
-  /* line 78, ../scss/breakpoints/_768up.scss */
+  /* line 79, ../scss/breakpoints/_768up.scss */
   .sidebar-desktop {
     display: block;
   }
 
-  /* line 81, ../scss/breakpoints/_768up.scss */
+  /* line 82, ../scss/breakpoints/_768up.scss */
   .sidebar-mobile {
     display: none;
   }
 
-  /* line 85, ../scss/breakpoints/_768up.scss */
+  /* line 86, ../scss/breakpoints/_768up.scss */
   .widgettitle {
     border-bottom: 1px solid #eaeaea;
     margin-bottom: 0.75em;
   }
 
-  /* line 90, ../scss/breakpoints/_768up.scss */
+  /* line 91, ../scss/breakpoints/_768up.scss */
   .widget {
     padding: 0 15px;
     margin: 2.2em 0;
   }
-  /* line 95, ../scss/breakpoints/_768up.scss */
+  /* line 96, ../scss/breakpoints/_768up.scss */
   .widget ul li {
     margin-bottom: 0.75em;
     /* deep nesting */
   }
-  /* line 103, ../scss/breakpoints/_768up.scss */
+  /* line 104, ../scss/breakpoints/_768up.scss */
   .widget ul li ul {
     margin-top: 0.75em;
     padding-left: 1em;
   }
 
-  /* line 113, ../scss/breakpoints/_768up.scss */
+  /* line 114, ../scss/breakpoints/_768up.scss */
   .widget.widget_oilve_recommended ul li {
     margin-left: -15px;
     margin-right: -15px;
@@ -3383,7 +3393,7 @@ you can add resource intensive styles.
     border-right: 0;
     padding: 12px 15px;
   }
-  /* line 119, ../scss/breakpoints/_768up.scss */
+  /* line 120, ../scss/breakpoints/_768up.scss */
   .widget.widget_oilve_recommended ul li .recommended-cover-img {
     margin-left: 0;
   }
@@ -3396,7 +3406,7 @@ you can add resource intensive styles.
   of overriding here if you styled them for
   mobile. Make sure to double check these!
   */
-  /* line 138, ../scss/breakpoints/_768up.scss */
+  /* line 139, ../scss/breakpoints/_768up.scss */
   .footer-links ul li {
     /*
     be careful with the depth of your menus.

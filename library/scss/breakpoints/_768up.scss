@@ -55,6 +55,7 @@ POSTS & CONTENT STYLES
 	@include box-sizing;
 	padding:20px 20px 20px 280px;
 	margin-left:-280px;
+	margin-bottom:0;
 	.hentry {
 		border:0;
 		@include border-radius(0);

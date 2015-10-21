@@ -48,6 +48,8 @@
 													setup_postdata($post);
 													$meta = get_post_meta($item->ID); 
 													$author = get_post($meta[_oliver_publications_author_ID][0]);
+													$author = $author->ID == $item->ID ? false : $author;
+													$links = get_post_meta($item->ID, '_oliver_publications_links', true);
 													$itemThumbArray = wp_get_attachment_image_src( get_post_thumbnail_id($item->ID), 'cover-small'); ?>
 													<li>
 														<a class="img-container" href="<?php the_permalink(); ?>">
@@ -55,13 +57,30 @@
 														</a>
 														<div class="item-content">
 															<h2 class="item-head"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+															<?php if ($author || $meta[_oliver_publications_num_pages][0] || $meta[_oliver_publications_price][0] || $meta[_oliver_publications_isbn][0]) { ?>
 															<p class="byline">
+																<?php if ($author) { ?>
 																<span class="author">By <a href="<?php echo get_the_permalink($author->ID); ?>"><?php echo $author->post_title;?></a></span>
+																<?php } ?>
+																<?php if ($meta[_oliver_publications_num_pages][0]) { ?>
 																<span class="pages"><?php echo $meta[_oliver_publications_num_pages][0]; ?> pages</span>
+																<?php } ?>
+																<?php if ($meta[_oliver_publications_price][0]) { ?>
 																<span class="price">$<?php echo $meta[_oliver_publications_price][0]; ?></span>
+																<?php } ?>
+																<?php if ($meta[_oliver_publications_isbn][0]) { ?>
 																<span class="isbn">ISBN: <?php echo $meta[_oliver_publications_isbn][0]; ?></span>
+																<?php } ?>
 															</p>
-															<div class="item-body"><?php the_excerpt(); ?></div>
+															<?php } ?>
+															<div class="item-body">
+																<?php the_excerpt(); ?>
+																<?php if ($links) { ?>
+																	<div class="link-container alignright">
+																		<a href="<?php echo $links[0][url]; ?>" class="btn btn-small btn-external btn-<?php echo $links[0][css_select]; ?>" target="_blank"><?php echo $links[0][title]; ?></a>
+																	</div>
+																<?php } ?>
+															</div>
 														</div>
 													</li>
 												<?php } ?>

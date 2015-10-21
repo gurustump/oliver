@@ -350,7 +350,7 @@ class oilve_recommended extends WP_Widget {
 					</a>
 					<h5><a href="<?php echo get_the_permalink($item->ID); ?>"><?php echo get_the_title($item->ID); ?></a></h5>
 					<?php if ($links) { ?>
-						<div class="link-container-upper">
+						<div class="link-container">
 							<a href="<?php echo $links[0][url]; ?>" class="btn btn-small btn-external btn-<?php echo $links[0][css_select]; ?>" target="_blank"><?php echo $links[0][title]; ?></a>
 						</div>
 					<?php } ?>
