@@ -60,7 +60,7 @@
 															<?php if ($author || $meta[_oliver_publications_num_pages][0] || $meta[_oliver_publications_price][0] || $meta[_oliver_publications_isbn][0]) { ?>
 															<p class="byline">
 																<?php if ($author) { ?>
-																<span class="author">By <a href="<?php echo get_the_permalink($author->ID); ?>"><?php echo $author->post_title;?></a></span>
+																<span class="author pub-author">By <a href="<?php echo get_the_permalink($author->ID); ?>"><?php echo $author->post_title;?></a></span>
 																<?php } ?>
 																<?php if ($meta[_oliver_publications_num_pages][0]) { ?>
 																<span class="pages"><?php echo $meta[_oliver_publications_num_pages][0]; ?> pages</span>
