@@ -287,6 +287,11 @@ POSTS & CONTENT STYLES
   box-sizing: border-box;
 }
 
+/* line 141, ../scss/breakpoints/_481up.scss */
+.newsletter-signup .input-container {
+  padding-right: 150px;
+}
+
 /*********************
 FOOTER STYLES
 *********************/
@@ -699,10 +704,15 @@ POSTS & CONTENT STYLES
   color: white;
 }
 
+/* line 195, ../scss/breakpoints/_1030up.scss */
+.newsletter-signup .input-container {
+  padding-right: 160px;
+}
+
 /*********************
 SIDEBARS & ASIDES
 *********************/
-/* line 198, ../scss/breakpoints/_1030up.scss */
+/* line 203, ../scss/breakpoints/_1030up.scss */
 .sidebar {
   border-width: 0 1px;
   width: 320px;
@@ -711,16 +721,16 @@ SIDEBARS & ASIDES
 /*********************
 FOOTER STYLES
 *********************/
-/* line 206, ../scss/breakpoints/_1030up.scss */
+/* line 211, ../scss/breakpoints/_1030up.scss */
 .footer-links {
   display: block;
   float: right;
 }
-/* line 210, ../scss/breakpoints/_1030up.scss */
+/* line 215, ../scss/breakpoints/_1030up.scss */
 .footer-links .footer-nav li {
   float: left;
 }
-/* line 212, ../scss/breakpoints/_1030up.scss */
+/* line 217, ../scss/breakpoints/_1030up.scss */
 .footer-links .footer-nav li a {
   letter-spacing: 3px;
   text-decoration: none;
@@ -730,13 +740,13 @@ FOOTER STYLES
   line-height: 40px;
   padding: 0 10px;
 }
-/* line 220, ../scss/breakpoints/_1030up.scss */
+/* line 225, ../scss/breakpoints/_1030up.scss */
 .footer-links .footer-nav li a:hover {
   background: #a81432;
 }
 
 /* end .footer-links */
-/* line 228, ../scss/breakpoints/_1030up.scss */
+/* line 233, ../scss/breakpoints/_1030up.scss */
 .copyright {
   float: left;
 }

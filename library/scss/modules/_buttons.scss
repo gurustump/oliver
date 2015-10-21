@@ -95,8 +95,25 @@ and it will create a button dependant on those variables.
 	} // end hover
 }
 
+.btn-red {
+	@extend %btn;
+	background-color:$red;
+	color:$white;
+	&:hover {
+		background-color: darken($red, 10%);
+		color:$white;
+	}
+}
+
 .btn-small {
 	height:28px;
 	line-height:28px;
 	padding:0 12px;
+}
+
+.btn-large {
+	height:40px;
+	line-height:40px;
+	padding:0 28px;
+	font-size:1.2em;
 }

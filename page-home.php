@@ -42,6 +42,8 @@
 								thumbGrid($featuredPubs, 'Featured Publications', 'featured-publications');
 							} ?>
 							
+							<?php include 'library/includes/newsletter-form.php'; ?>
+							
 						</main>
 
 

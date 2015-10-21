@@ -760,6 +760,23 @@ POSTS & CONTENT STYLES
 		}
 	}
 }
+.newsletter-signup {
+	padding:15px 20px;
+	border:1px solid $red;
+	@include border-radius(3px);
+	background:$light-gray;
+	.input-container {
+		input {
+			background:$white;
+			float:left;
+			width:100%;
+			max-width:none;
+		}
+	}
+	.btn {
+		float:right;
+	}
+}
 
 /******************************************************************
 PAGE NAVI STYLES
