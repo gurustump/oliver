@@ -3129,7 +3129,7 @@ body.page-template-page-list .entry-content .link-container {
 /* line 1392, ../scss/breakpoints/_base.scss */
 body.page-template-page-list .entry-content .link-container .btn {
   float: left;
-  margin-right: 8px;
+  margin-left: 8px;
 }
 
 /*********************
