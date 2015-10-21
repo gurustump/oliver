@@ -1387,5 +1387,12 @@ body.page-template-page-list {
 		.item-body {
 			margin-top:1em;
 		}
+		.link-container {
+			float:right;
+			.btn {
+				float:left;
+				margin-right:8px;
+			}
+		}
 	}
 }

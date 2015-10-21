@@ -76,8 +76,10 @@
 															<div class="item-body">
 																<?php the_excerpt(); ?>
 																<?php if ($links) { ?>
-																	<div class="link-container alignright">
-																		<a href="<?php echo $links[0][url]; ?>" class="btn btn-small btn-external btn-<?php echo $links[0][css_select]; ?>" target="_blank"><?php echo $links[0][title]; ?></a>
+																	<div class="link-container">
+																		<?php foreach($links as $key => $link) { ?>
+																			<a href="<?php echo $link[url]; ?>" class="btn btn-small btn-external btn-<?php echo $link[css_select]; ?>" target="_blank"><?php echo $link[title]; ?></a>
+																		<?php } ?>
 																	</div>
 																<?php } ?>
 															</div>
