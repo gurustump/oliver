@@ -464,10 +464,10 @@ body#tinymce.wp-editor hr {
 }
 /* line 170, ../scss/partials/_normalize.scss */
 body#tinymce.wp-editor p {
-  -webkit-hyphens: auto;
-  -epub-hyphens: auto;
-  -moz-hyphens: auto;
-  hyphens: auto;
+  -webkit-hyphens: none;
+  -epub-hyphens: none;
+  -moz-hyphens: none;
+  hyphens: none;
 }
 /* line 181, ../scss/partials/_normalize.scss */
 body#tinymce.wp-editor pre {
