@@ -25,6 +25,7 @@
 							print_r($meta); 
 							echo '</pre>'; */
 							$author = get_post($meta[_oliver_publications_author_ID][0]);
+							$author = $author->ID == get_the_ID() ? false : $author;
 							$links = get_post_meta(get_the_ID(), '_oliver_publications_links', true);
 							/*echo '<pre style="border:1px solid #ccc;padding:20px">';
 							print_r($links); 
@@ -35,12 +36,22 @@
 								<header class="article-header">
 
 									<h1 class="single-title custom-post-type-title"><?php the_title(); ?></h1>
+									<?php if ($author || $meta[_oliver_publications_num_pages][0] || $meta[_oliver_publications_price][0] || $meta[_oliver_publications_isbn][0]) { ?>
 									<p class="byline">
+										<?php if ($author) { ?>
 										<span class="author pub-author">By <a href="<?php echo get_the_permalink($author->ID); ?>"><?php echo $author->post_title;?></a></span>
+										<?php } ?>
+										<?php if ($meta[_oliver_publications_num_pages][0]) { ?>
 										<span class="pages"><?php echo $meta[_oliver_publications_num_pages][0]; ?> pages</span>
+										<?php } ?>
+										<?php if ($meta[_oliver_publications_price][0]) { ?>
 										<span class="price">$<?php echo $meta[_oliver_publications_price][0]; ?></span>
+										<?php } ?>
+										<?php if ($meta[_oliver_publications_isbn][0]) { ?>
 										<span class="isbn">ISBN: <?php echo $meta[_oliver_publications_isbn][0]; ?></span>
+										<?php } ?>
 									</p>
+									<?php } ?>
 
 								</header>
 
@@ -68,6 +79,7 @@
 								</section> <!-- end article section -->
 
 								<footer class="article-footer">
+									<?php if ($author) { ?>
 									<div class="about-author">
 										<a class="author-img" href="<?php echo get_the_permalink($author->ID); ?>">
 											<?php echo get_the_post_thumbnail($author->ID, 'thumbnail', array('class' => 'alignright')); ?>
@@ -77,6 +89,7 @@
 											<?php echo $author->post_content; ?>
 										</div>
 									</div>
+									<?php } ?>
 								</footer>
 
 								<?php // comments_template(); ?>

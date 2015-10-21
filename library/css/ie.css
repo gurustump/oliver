@@ -610,9 +610,10 @@ POSTS & CONTENT STYLES
 #main {
   width: 660px;
   margin: 0;
-  padding: 35px 0 20px;
+  padding: 35px 20px 20px 0;
+  border-right: 1px solid #cccccc;
 }
-/* line 128, ../scss/breakpoints/_1030up.scss */
+/* line 129, ../scss/breakpoints/_1030up.scss */
 #main .hentry {
   border: 0;
   -webkit-border-radius: 0;
@@ -622,26 +623,26 @@ POSTS & CONTENT STYLES
   border-radius: 0;
 }
 
-/* line 135, ../scss/breakpoints/_1030up.scss */
+/* line 136, ../scss/breakpoints/_1030up.scss */
 .thumb-grid .thumbs > li {
   width: 165px;
   height: 299px;
   font-size: 11px;
 }
-/* line 140, ../scss/breakpoints/_1030up.scss */
+/* line 141, ../scss/breakpoints/_1030up.scss */
 .thumb-grid .thumbs > li a:hover {
   background-color: #eaeaea;
 }
-/* line 144, ../scss/breakpoints/_1030up.scss */
+/* line 145, ../scss/breakpoints/_1030up.scss */
 .thumb-grid .thumbs > li .item-thumb-container {
   height: 240px;
 }
-/* line 147, ../scss/breakpoints/_1030up.scss */
+/* line 148, ../scss/breakpoints/_1030up.scss */
 .thumb-grid .thumbs > li .item-text-container {
   display: block;
   height: 45px;
 }
-/* line 151, ../scss/breakpoints/_1030up.scss */
+/* line 152, ../scss/breakpoints/_1030up.scss */
 .thumb-grid .thumbs > li .item-title {
   max-height: 100%;
   overflow: hidden;
@@ -654,7 +655,7 @@ POSTS & CONTENT STYLES
   position: relative;
   top: 50%;
 }
-/* line 160, ../scss/breakpoints/_1030up.scss */
+/* line 161, ../scss/breakpoints/_1030up.scss */
 .thumb-grid .thumb-grid-nav a {
   padding-left: 6px;
   padding-right: 6px;
@@ -664,7 +665,7 @@ POSTS & CONTENT STYLES
   -o-transition: background-color 0.35s, color 0.35s, opacity 0.35s;
   transition: background-color 0.35s, color 0.35s, opacity 0.35s;
 }
-/* line 164, ../scss/breakpoints/_1030up.scss */
+/* line 165, ../scss/breakpoints/_1030up.scss */
 .thumb-grid .thumb-grid-nav a:after {
   -webkit-transition: border-color 0.35s;
   -moz-transition: border-color 0.35s;
@@ -672,25 +673,25 @@ POSTS & CONTENT STYLES
   -o-transition: border-color 0.35s;
   transition: border-color 0.35s;
 }
-/* line 167, ../scss/breakpoints/_1030up.scss */
+/* line 168, ../scss/breakpoints/_1030up.scss */
 .thumb-grid .thumb-grid-nav a.prev {
   padding-left: 6px;
   padding-right: 8px;
 }
-/* line 171, ../scss/breakpoints/_1030up.scss */
+/* line 172, ../scss/breakpoints/_1030up.scss */
 .thumb-grid .thumb-grid-nav a.prev:hover:after {
   border-right-color: white;
 }
-/* line 176, ../scss/breakpoints/_1030up.scss */
+/* line 177, ../scss/breakpoints/_1030up.scss */
 .thumb-grid .thumb-grid-nav a.next {
   padding-left: 8px;
   padding-right: 6px;
 }
-/* line 180, ../scss/breakpoints/_1030up.scss */
+/* line 181, ../scss/breakpoints/_1030up.scss */
 .thumb-grid .thumb-grid-nav a.next:hover:after {
   border-left-color: white;
 }
-/* line 185, ../scss/breakpoints/_1030up.scss */
+/* line 186, ../scss/breakpoints/_1030up.scss */
 .thumb-grid .thumb-grid-nav a:hover {
   background-color: #d61940;
   color: white;
@@ -699,7 +700,7 @@ POSTS & CONTENT STYLES
 /*********************
 SIDEBARS & ASIDES
 *********************/
-/* line 196, ../scss/breakpoints/_1030up.scss */
+/* line 197, ../scss/breakpoints/_1030up.scss */
 .sidebar {
   border-width: 0 1px;
   width: 320px;
@@ -708,16 +709,16 @@ SIDEBARS & ASIDES
 /*********************
 FOOTER STYLES
 *********************/
-/* line 204, ../scss/breakpoints/_1030up.scss */
+/* line 205, ../scss/breakpoints/_1030up.scss */
 .footer-links {
   display: block;
   float: right;
 }
-/* line 208, ../scss/breakpoints/_1030up.scss */
+/* line 209, ../scss/breakpoints/_1030up.scss */
 .footer-links .footer-nav li {
   float: left;
 }
-/* line 210, ../scss/breakpoints/_1030up.scss */
+/* line 211, ../scss/breakpoints/_1030up.scss */
 .footer-links .footer-nav li a {
   letter-spacing: 3px;
   text-decoration: none;
@@ -727,13 +728,13 @@ FOOTER STYLES
   line-height: 40px;
   padding: 0 10px;
 }
-/* line 218, ../scss/breakpoints/_1030up.scss */
+/* line 219, ../scss/breakpoints/_1030up.scss */
 .footer-links .footer-nav li a:hover {
   background: #a81432;
 }
 
 /* end .footer-links */
-/* line 226, ../scss/breakpoints/_1030up.scss */
+/* line 227, ../scss/breakpoints/_1030up.scss */
 .copyright {
   float: left;
 }

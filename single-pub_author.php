@@ -38,9 +38,11 @@
 								</header>
 
 								<section class="entry-content cf">
+									<?php if (has_post_thumbnail()) { ?>
 									<div class="post-thumb-container">
 										<?php the_post_thumbnail('medium'); ?>
 									</div>
+									<?php } ?>
 									<?php the_content(); ?>
 								</section> <!-- end article section -->
 

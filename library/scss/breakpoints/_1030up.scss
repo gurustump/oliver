@@ -124,7 +124,8 @@ POSTS & CONTENT STYLES
 #main {
 	width:660px;
 	margin:0;
-	padding:35px 0 20px;
+	padding:35px 20px 20px 0;
+	border-right:1px solid $border-color;
 	.hentry {
 		border:0;
 		@include border-radius(0);
