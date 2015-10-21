@@ -36,7 +36,7 @@
 
 									<h1 class="single-title custom-post-type-title"><?php the_title(); ?></h1>
 									<p class="byline">
-										<span class="author">By <a href="<?php echo get_the_permalink($author->ID); ?>"><?php echo $author->post_title;?></a></span>
+										<span class="author pub-author">By <a href="<?php echo get_the_permalink($author->ID); ?>"><?php echo $author->post_title;?></a></span>
 										<span class="pages"><?php echo $meta[_oliver_publications_num_pages][0]; ?> pages</span>
 										<span class="price">$<?php echo $meta[_oliver_publications_price][0]; ?></span>
 										<span class="isbn">ISBN: <?php echo $meta[_oliver_publications_isbn][0]; ?></span>
@@ -69,6 +69,9 @@
 
 								<footer class="article-footer">
 									<div class="about-author">
+										<a class="author-img" href="<?php echo get_the_permalink($author->ID); ?>">
+											<?php echo get_the_post_thumbnail($author->ID, 'thumbnail', array('class' => 'alignright')); ?>
+										</a>
 										<h2>About <a href="<?php echo get_the_permalink($author->ID); ?>"><?php echo $author->post_title; ?></a></h2>
 										<div>
 											<?php echo $author->post_content; ?>

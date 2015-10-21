@@ -239,7 +239,7 @@ can replace these fonts, change it in your scss files
 and be up and running in seconds.
 */
 function bones_fonts() {
-  wp_enqueue_style('googleFonts', 'https://fonts.googleapis.com/css?family=Bitter:400,400italic,700|Montserrat:400,700|Fira+Sans:300,400|Merriweather:400,700,400italic,700italic');
+  wp_enqueue_style('googleFonts', 'https://fonts.googleapis.com/css?family=Montserrat:400,700|Fira+Sans:300,400|Merriweather:400,700,400italic,700italic');
 }
 add_action('wp_enqueue_scripts', 'bones_fonts');
 
@@ -300,5 +300,112 @@ function thumbGrid($itemObject, $title, $className) {
 		echo '</div>';
 	echo '</div>';
 }
+
+// Creating the widget 
+class oilve_featured extends WP_Widget {
+	function __construct() {
+		parent::__construct(
+			// Base ID of your widget
+			'oilve_featured', 
+
+			// Widget name will appear in UI
+			__('Featured Publications', 'olive_widgets'), 
+
+			// Widget description
+			array( 'description' => __( 'Sample widget based on WPBeginner Tutorial', 'olive_widgets' ), ) 
+		);
+	}
+
+	// Creating widget front-end
+	// This is where the action happens
+	public function widget( $args, $instance ) {
+		$title = empty($instance['title']) ? '' : apply_filters( 'widget_title', $instance['title'] );
+		$number_of_posts = empty($instance['number_of_posts']) ? '4' : $instance['number_of_posts'];
+		
+		// before and after widget arguments are defined by themes
+		echo $args['before_widget'];
+		if ( ! empty( $title ) ) {
+			echo $args['before_title'] . $title . $args['after_title'];
+		}
+		/*
+		echo '<pre>';
+		print_r($instance);
+		echo '</pre>';
+		*/
+		$featured = get_posts(array(
+			'post_type' => array('publication'),
+			'numberposts'=>$number_of_posts
+		));
+		echo '<ul>';
+		foreach($featured as $key => $item) { 
+			$links = get_post_meta($item->ID, '_oliver_publications_links', true);
+			?>
+			<li>
+				<a class="featured-cover-img" href="<?php echo get_the_permalink($item->ID); ?>">
+					<?php echo get_the_post_thumbnail($item->ID, 'cover-small'); ?>
+				</a>
+				<h5><a href="<?php echo get_the_permalink($item->ID); ?>"><?php echo get_the_title($item->ID); ?></a></h5>
+				<?php if ($links) { ?>
+					<div class="link-container-upper">
+						<a href="<?php echo $links[0][url]; ?>" class="btn btn-small btn-external btn-<?php echo $links[0][css_select]; ?>" target="_blank"><?php echo $links[0][title]; ?></a>
+					</div>
+				<?php } ?>
+			</li>
+		<?php }
+		echo '</ul>';
+		
+		echo $args['after_widget'];
+	}
+			
+	// Widget Backend 
+	public function form( $instance ) {
+		$instance = wp_parse_args( (array) $instance, array( 'title' => '' ) );
+		if ( isset( $instance[ 'title' ] ) ) {
+			$title = $instance['title'];
+		} else {
+			$title = __( 'Featured Publications', 'olive_widgets' );
+		}
+		$number_of_posts = $instance['number_of_posts'];
+		 
+		// Widget admin form
+		?>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label> 
+			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('number_of_posts'); ?>">Number of Publications to Display:</label>
+			<select class='widefat' id="<?php echo $this->get_field_id('number_of_posts'); ?>" name="<?php echo $this->get_field_name('number_of_posts'); ?>" type="text">
+				<option value='1'<?php echo ($number_of_posts=='1')?'selected':''; ?>>1</option>
+				<option value='2'<?php echo ($number_of_posts=='2')?'selected':''; ?>>2</option> 
+				<option value='3'<?php echo ($number_of_posts=='3')?'selected':''; ?>>3</option> 
+				<option value='4'<?php echo ($number_of_posts=='4')?'selected':''; ?>>4</option> 
+				<option value='5'<?php echo ($number_of_posts=='5')?'selected':''; ?>>5</option> 
+				<option value='6'<?php echo ($number_of_posts=='6')?'selected':''; ?>>6</option> 
+				<option value='7'<?php echo ($number_of_posts=='7')?'selected':''; ?>>7</option> 
+				<option value='8'<?php echo ($number_of_posts=='8')?'selected':''; ?>>8</option> 
+				<option value='9'<?php echo ($number_of_posts=='9')?'selected':''; ?>>9</option> 
+				<option value='10'<?php echo ($number_of_posts=='10')?'selected':''; ?>>10</option> 
+			</select>     
+		</p>
+	<?php 
+}
+	
+	// Updating widget replacing old instances with new
+	public function update( $new_instance, $old_instance ) {
+		$instance = $old_instance;
+		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+		$instance['number_of_posts'] = $new_instance['number_of_posts'];
+		return $instance;
+	}
+} // Class oilve_featured ends here
+
+// Register and load the widget
+function wpb_load_widget() {
+	register_widget( 'oilve_featured' );
+}
+add_action( 'widgets_init', 'wpb_load_widget' );
+
+
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>

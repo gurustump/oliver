@@ -94,3 +94,9 @@ and it will create a button dependant on those variables.
 		color:$white;
 	} // end hover
 }
+
+.btn-small {
+	height:28px;
+	line-height:28px;
+	padding:0 12px;
+}

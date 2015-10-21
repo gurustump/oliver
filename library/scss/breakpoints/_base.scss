@@ -460,7 +460,7 @@ POSTS & CONTENT STYLES
 	font-family:$heading;
 	font-style: italic;
 	padding:3px 0;
-	.author {
+	.pub-author {
 		display:block;
 		a {
 			@extend %prettylink;
@@ -576,6 +576,17 @@ POSTS & CONTENT STYLES
 		margin: 0 0 1.5em 0;
 		max-width: 100%;
 		height: auto;
+		&.alignright, &.alignleft {
+			max-width:45%
+		}
+		&.alignleft {
+			float:left;
+			margin-right:1em;
+		}
+		&.alignright {
+			float:right;
+			margin-left:1em;
+		}
 	}
 
 	/*
@@ -1116,6 +1127,67 @@ SIDEBARS & ASIDES
 		}
 	}
 }
+.widget {
+	margin-bottom:1.5em;
+	h4 {
+		margin-bottom:.75em;
+		border-bottom:1px solid $gray;
+	}
+}
+.widget.widget_recent_entries {
+	ul {
+		li {
+			margin-bottom:1em;
+		}
+		a {
+			display:block;
+			font-family:$button;
+			text-decoration:none;
+			position:relative;
+			padding-left:10px;
+			@include tri(right, 4px, 4px, $red, 9px 5px 0 0, block);
+			&:after {
+				position:absolute;
+				left:0;
+				top:0;
+			}
+		}
+	}
+}
+.widget.widget_oilve_featured {
+	ul {
+		li {
+			@include clearfix;
+			position:relative;
+			border:1px solid $gray;
+			padding:7px 12px 7px 7px;
+			background:$light-gray;
+			margin-bottom:-1px;
+		}
+	}
+	.featured-cover-img {
+		float:left;
+		margin:-2px 8px -2px -2px;
+		width:50px;
+		img {
+			width:100%;
+			height:auto;
+			display:block;
+			margin-bottom:0;
+		}
+	}
+	h5 {
+		font-size:1em;
+		font-family:$button;
+		text-transform:none;
+		letter-spacing:0;
+		margin-bottom:5px;
+	}
+	.btn {
+		// position:absolute;
+		bottom:0;
+	}
+}
 
 .no-widgets {
 	background-color: $white;
@@ -1254,6 +1326,41 @@ body.single-publication, body.single-pub_author {
 			a {
 				@extend %prettylink;
 			}
+		}
+		img {
+			margin: 0 0 1em 0;
+			max-width: 100%;
+			height: auto;
+			
+			&.alignright, &.alignleft {
+				max-width:45%
+			}
+			&.alignleft {
+				float:left;
+				margin-right:1em;
+			}
+			&.alignright {
+				float:right;
+				margin-left:1em;
+			}
+		}
+		.author-img {
+			img {
+				width:120px;
+				@include border-radius(50%);
+			}
+		}
+	}
+}
+
+/*********************
+BLOG (NEWS & REVIEWS) PAGE
+*********************/
+body.blog {
+	#main {
+		.hentry {
+			border-bottom:3px double $gray;
+			margin-bottom:2.5em;
 		}
 	}
 }

@@ -202,7 +202,7 @@ jQuery(document).ready(function($) {
 	setSidebarHeight();
 	
 	function headerHeight() {
-		if (win.scrollTop() > 10) {
+		if (win.scrollTop() > 30) {
 			$('body').addClass('scrolled');
 		} else {
 			$('body').removeClass('scrolled');

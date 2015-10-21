@@ -409,17 +409,19 @@ SIDEBARS & ASIDES
   padding-left: 1em;
 }
 
-/* links widget */
-/* meta widget */
-/* pages widget */
-/* recent-posts widget */
-/* archives widget */
-/* tag-cloud widget */
-/* calendar widget */
-/* category widget */
-/* recent-comments widget */
-/* search widget */
-/* text widget */
+/* line 113, ../scss/breakpoints/_768up.scss */
+.widget.widget_oilve_featured ul li {
+  margin-left: -15px;
+  margin-right: -15px;
+  border-left: 0;
+  border-right: 0;
+  padding: 12px 15px;
+}
+/* line 119, ../scss/breakpoints/_768up.scss */
+.widget.widget_oilve_featured ul li .featured-cover-img {
+  margin-left: 0;
+}
+
 /*********************
 FOOTER STYLES
 *********************/
@@ -428,7 +430,7 @@ you'll probably need to do quite a bit
 of overriding here if you styled them for
 mobile. Make sure to double check these!
 */
-/* line 211, ../scss/breakpoints/_768up.scss */
+/* line 138, ../scss/breakpoints/_768up.scss */
 .footer-links ul li {
   /*
   be careful with the depth of your menus.
