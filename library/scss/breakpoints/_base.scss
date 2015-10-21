@@ -683,6 +683,7 @@ POSTS & CONTENT STYLES
 		overflow:hidden;
 	}
 	.thumbs {
+		width:1000%;
 		border-top:1px solid rgba($red, .8);
 		padding-top:10px;
 		@include clearfix;

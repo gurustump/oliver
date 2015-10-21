@@ -11,7 +11,7 @@
  * need any of it, just remove it. They are meant to be helpers and are
  * not required. It's your world baby, you can do whatever you want.
 */
-
+var dammit;
 
 /*
  * Get Viewport Dimensions
@@ -171,6 +171,10 @@ jQuery(document).ready(function($) {
 	
 	// Equal Heights - group must be a jQuery object. If masterElem is used, items in group will be set to masterElem's height. It should be a jQuery object with only one element in it. If outer is true, masterElem's outerHeight will be used. modifier is just a number to add or subtract to the masterElem height.
 	function equalHeight(group, reset, masterElem, outer, modifier) {
+		group.each(function() {
+			console.log($(this).outerHeight());
+		})
+		console.log(masterElem.outerHeight());
 		if (reset) {
 			group.css('height','auto');
 		}
@@ -191,7 +195,7 @@ jQuery(document).ready(function($) {
 			group.css('height', tallest);
 		}
 	}
-	function setSidebarHeight() {
+	setSidebarHeight = function() {
 		if (mobileDeviceType() == 'mobile') {
 			$('#main, #sidebar').css('height', 'auto');
 		} else {
@@ -200,6 +204,7 @@ jQuery(document).ready(function($) {
 		}
 	}
 	setSidebarHeight();
+	dammit = setSidebarHeight;
 	
 	function headerHeight() {
 		if (win.scrollTop() > 30) {
