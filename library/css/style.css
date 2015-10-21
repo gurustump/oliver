@@ -3633,13 +3633,14 @@ you can add resource intensive styles.
   /* line 145, ../scss/breakpoints/_1030up.scss */
   .thumb-grid .thumbs > li .item-thumb-container {
     height: 240px;
+    display: block;
   }
-  /* line 148, ../scss/breakpoints/_1030up.scss */
+  /* line 149, ../scss/breakpoints/_1030up.scss */
   .thumb-grid .thumbs > li .item-text-container {
     display: block;
     height: 45px;
   }
-  /* line 152, ../scss/breakpoints/_1030up.scss */
+  /* line 153, ../scss/breakpoints/_1030up.scss */
   .thumb-grid .thumbs > li .item-title {
     max-height: 100%;
     overflow: hidden;
@@ -3652,7 +3653,7 @@ you can add resource intensive styles.
     position: relative;
     top: 50%;
   }
-  /* line 161, ../scss/breakpoints/_1030up.scss */
+  /* line 162, ../scss/breakpoints/_1030up.scss */
   .thumb-grid .thumb-grid-nav a {
     padding-left: 6px;
     padding-right: 6px;
@@ -3662,7 +3663,7 @@ you can add resource intensive styles.
     -o-transition: background-color 0.35s, color 0.35s, opacity 0.35s;
     transition: background-color 0.35s, color 0.35s, opacity 0.35s;
   }
-  /* line 165, ../scss/breakpoints/_1030up.scss */
+  /* line 166, ../scss/breakpoints/_1030up.scss */
   .thumb-grid .thumb-grid-nav a:after {
     -webkit-transition: border-color 0.35s;
     -moz-transition: border-color 0.35s;
@@ -3670,25 +3671,25 @@ you can add resource intensive styles.
     -o-transition: border-color 0.35s;
     transition: border-color 0.35s;
   }
-  /* line 168, ../scss/breakpoints/_1030up.scss */
+  /* line 169, ../scss/breakpoints/_1030up.scss */
   .thumb-grid .thumb-grid-nav a.prev {
     padding-left: 6px;
     padding-right: 8px;
   }
-  /* line 172, ../scss/breakpoints/_1030up.scss */
+  /* line 173, ../scss/breakpoints/_1030up.scss */
   .thumb-grid .thumb-grid-nav a.prev:hover:after {
     border-right-color: white;
   }
-  /* line 177, ../scss/breakpoints/_1030up.scss */
+  /* line 178, ../scss/breakpoints/_1030up.scss */
   .thumb-grid .thumb-grid-nav a.next {
     padding-left: 8px;
     padding-right: 6px;
   }
-  /* line 181, ../scss/breakpoints/_1030up.scss */
+  /* line 182, ../scss/breakpoints/_1030up.scss */
   .thumb-grid .thumb-grid-nav a.next:hover:after {
     border-left-color: white;
   }
-  /* line 186, ../scss/breakpoints/_1030up.scss */
+  /* line 187, ../scss/breakpoints/_1030up.scss */
   .thumb-grid .thumb-grid-nav a:hover {
     background-color: #d61940;
     color: white;
@@ -3697,7 +3698,7 @@ you can add resource intensive styles.
   /*********************
   SIDEBARS & ASIDES
   *********************/
-  /* line 197, ../scss/breakpoints/_1030up.scss */
+  /* line 198, ../scss/breakpoints/_1030up.scss */
   .sidebar {
     border-width: 0 1px;
     width: 320px;
@@ -3706,16 +3707,16 @@ you can add resource intensive styles.
   /*********************
   FOOTER STYLES
   *********************/
-  /* line 205, ../scss/breakpoints/_1030up.scss */
+  /* line 206, ../scss/breakpoints/_1030up.scss */
   .footer-links {
     display: block;
     float: right;
   }
-  /* line 209, ../scss/breakpoints/_1030up.scss */
+  /* line 210, ../scss/breakpoints/_1030up.scss */
   .footer-links .footer-nav li {
     float: left;
   }
-  /* line 211, ../scss/breakpoints/_1030up.scss */
+  /* line 212, ../scss/breakpoints/_1030up.scss */
   .footer-links .footer-nav li a {
     letter-spacing: 3px;
     text-decoration: none;
@@ -3725,13 +3726,13 @@ you can add resource intensive styles.
     line-height: 40px;
     padding: 0 10px;
   }
-  /* line 219, ../scss/breakpoints/_1030up.scss */
+  /* line 220, ../scss/breakpoints/_1030up.scss */
   .footer-links .footer-nav li a:hover {
     background: #a81432;
   }
 
   /* end .footer-links */
-  /* line 227, ../scss/breakpoints/_1030up.scss */
+  /* line 228, ../scss/breakpoints/_1030up.scss */
   .copyright {
     float: left;
   }
