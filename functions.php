@@ -322,41 +322,44 @@ class oilve_recommended extends WP_Widget {
 		$title = empty($instance['title']) ? '' : apply_filters( 'widget_title', $instance['title'] );
 		$number_of_posts = empty($instance['number_of_posts']) ? '4' : $instance['number_of_posts'];
 		
-		// before and after widget arguments are defined by themes
-		echo $args['before_widget'];
-		if ( ! empty( $title ) ) {
-			echo $args['before_title'] . $title . $args['after_title'];
-		}
-		/*
-		echo '<pre>';
-		print_r($instance);
-		echo '</pre>';
-		*/
 		$pubs = get_posts(array(
 			'post_type' => array('publication'),
 			'numberposts' => $number_of_posts,
 			'orderby' => 'rand',
 			'category_name' => 'recommended'
 		));
-		echo '<ul>';
-		foreach($pubs as $key => $item) { 
-			$links = get_post_meta($item->ID, '_oliver_publications_links', true);
-			?>
-			<li>
-				<a class="recommended-cover-img" href="<?php echo get_the_permalink($item->ID); ?>">
-					<?php echo get_the_post_thumbnail($item->ID, 'cover-small'); ?>
-				</a>
-				<h5><a href="<?php echo get_the_permalink($item->ID); ?>"><?php echo get_the_title($item->ID); ?></a></h5>
-				<?php if ($links) { ?>
-					<div class="link-container-upper">
-						<a href="<?php echo $links[0][url]; ?>" class="btn btn-small btn-external btn-<?php echo $links[0][css_select]; ?>" target="_blank"><?php echo $links[0][title]; ?></a>
-					</div>
-				<?php } ?>
-			</li>
-		<?php }
-		echo '</ul>';
 		
-		echo $args['after_widget'];
+		if (count($pubs) > 0) {
+			// before and after widget arguments are defined by themes
+			echo $args['before_widget'];
+			if ( ! empty( $title ) ) {
+				echo $args['before_title'] . $title . $args['after_title'];
+			}
+			/*
+			echo '<pre>';
+			print_r($instance);
+			echo '</pre>';
+			*/
+			echo '<ul>';
+			foreach($pubs as $key => $item) { 
+				$links = get_post_meta($item->ID, '_oliver_publications_links', true);
+				?>
+				<li>
+					<a class="recommended-cover-img" href="<?php echo get_the_permalink($item->ID); ?>">
+						<?php echo get_the_post_thumbnail($item->ID, 'cover-small'); ?>
+					</a>
+					<h5><a href="<?php echo get_the_permalink($item->ID); ?>"><?php echo get_the_title($item->ID); ?></a></h5>
+					<?php if ($links) { ?>
+						<div class="link-container-upper">
+							<a href="<?php echo $links[0][url]; ?>" class="btn btn-small btn-external btn-<?php echo $links[0][css_select]; ?>" target="_blank"><?php echo $links[0][title]; ?></a>
+						</div>
+					<?php } ?>
+				</li>
+			<?php }
+			echo '</ul>';
+			
+			echo $args['after_widget'];
+		}
 	}
 			
 	// Widget Backend 
