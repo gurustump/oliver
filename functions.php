@@ -302,17 +302,17 @@ function thumbGrid($itemObject, $title, $className) {
 }
 
 // Creating the widget 
-class oilve_featured extends WP_Widget {
+class oilve_recommended extends WP_Widget {
 	function __construct() {
 		parent::__construct(
 			// Base ID of your widget
-			'oilve_featured', 
+			'oilve_recommended', 
 
 			// Widget name will appear in UI
-			__('Featured Publications', 'olive_widgets'), 
+			__('Recommended Publications', 'olive_widgets'), 
 
 			// Widget description
-			array( 'description' => __( 'Sample widget based on WPBeginner Tutorial', 'olive_widgets' ), ) 
+			array( 'description' => __( 'Widget for displaying publications from the "Recommended" category', 'olive_widgets' ), ) 
 		);
 	}
 
@@ -332,16 +332,18 @@ class oilve_featured extends WP_Widget {
 		print_r($instance);
 		echo '</pre>';
 		*/
-		$featured = get_posts(array(
+		$pubs = get_posts(array(
 			'post_type' => array('publication'),
-			'numberposts'=>$number_of_posts
+			'numberposts' => $number_of_posts,
+			'orderby' => 'rand',
+			'category_name' => 'recommended'
 		));
 		echo '<ul>';
-		foreach($featured as $key => $item) { 
+		foreach($pubs as $key => $item) { 
 			$links = get_post_meta($item->ID, '_oliver_publications_links', true);
 			?>
 			<li>
-				<a class="featured-cover-img" href="<?php echo get_the_permalink($item->ID); ?>">
+				<a class="recommended-cover-img" href="<?php echo get_the_permalink($item->ID); ?>">
 					<?php echo get_the_post_thumbnail($item->ID, 'cover-small'); ?>
 				</a>
 				<h5><a href="<?php echo get_the_permalink($item->ID); ?>"><?php echo get_the_title($item->ID); ?></a></h5>
@@ -363,7 +365,7 @@ class oilve_featured extends WP_Widget {
 		if ( isset( $instance[ 'title' ] ) ) {
 			$title = $instance['title'];
 		} else {
-			$title = __( 'Featured Publications', 'olive_widgets' );
+			$title = __( 'Recommended Publications', 'olive_widgets' );
 		}
 		$number_of_posts = $instance['number_of_posts'];
 		 
@@ -398,11 +400,11 @@ class oilve_featured extends WP_Widget {
 		$instance['number_of_posts'] = $new_instance['number_of_posts'];
 		return $instance;
 	}
-} // Class oilve_featured ends here
+} // Class oilve_recommended ends here
 
 // Register and load the widget
 function wpb_load_widget() {
-	register_widget( 'oilve_featured' );
+	register_widget( 'oilve_recommended' );
 }
 add_action( 'widgets_init', 'wpb_load_widget' );
 

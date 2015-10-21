@@ -1154,7 +1154,11 @@ SIDEBARS & ASIDES
 		}
 	}
 }
-.widget.widget_oilve_featured {
+.widget.widget_oilve_recommended {
+	h4 {
+		margin-bottom:0;
+		border-bottom:0;
+	}
 	ul {
 		li {
 			@include clearfix;
@@ -1165,7 +1169,7 @@ SIDEBARS & ASIDES
 			margin-bottom:-1px;
 		}
 	}
-	.featured-cover-img {
+	.recommended-cover-img {
 		float:left;
 		margin:-2px 8px -2px -2px;
 		width:50px;
