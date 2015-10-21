@@ -1133,6 +1133,9 @@ SIDEBARS & ASIDES
 		margin-bottom:.75em;
 		border-bottom:1px solid $gray;
 	}
+	&:last-child {
+		margin-bottom:0;
+	}
 }
 .widget.widget_recent_entries {
 	ul {
