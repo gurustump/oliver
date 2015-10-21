@@ -123,7 +123,7 @@ jQuery(document).ready(function($) {
 			mobileDeviceBodyClass();
 			setSidebarHeight();
 			headerHeight();
-			thumbGrid();
+			thumbGridSize();
 		}, timeToWaitForLast, 'resizeWindow');
 	});
 	
@@ -178,15 +178,12 @@ jQuery(document).ready(function($) {
 			var newHeight = outer ? masterElem.outerHeight() : masterElem.height();
 			if (modifier) {
 				newHeight += modifier;
-				console.log(modifier)
 			}
-			console.log(newHeight);
 			group.css('height', newHeight);
 		} else {
 			var tallest = 0;
 			group.each(function() {
 				var thisHeight = $(this).outerHeight();
-				console.log(thisHeight);
 				if(thisHeight > tallest) {
 					tallest = thisHeight;
 				}
@@ -195,7 +192,6 @@ jQuery(document).ready(function($) {
 		}
 	}
 	function setSidebarHeight() {
-		console.log(mobileDeviceType());
 		if (mobileDeviceType() == 'mobile') {
 			$('#main, #sidebar').css('height', 'auto');
 		} else {
@@ -217,36 +213,44 @@ jQuery(document).ready(function($) {
 		headerHeight();
 	});
 	
-	function thumbGrid() {
-		gridCols = win.width() < 481 ? 3 : 4;
-		var grid = $('.THUMB_GRID');
-		var gridInner = grid.find('.THUMB_GRID_INNER');
-		var thumbList = grid.find('.THUMBS');
-		var thumbs = thumbList.children('li');
-		var thumbNav = grid.find('.THUMB_GRID_NAV');
-		var thumbWidth = gridInner.width() / gridCols;
-		var panelWidth = thumbWidth * thumbs.length;
-		panelWidth = panelWidth >= gridInner.width() ? panelWidth : gridInner.width();
-		thumbs.width(thumbWidth);
-		thumbList.width(panelWidth);
-		thumbNavLinkVisibility();
+	var grid = $('.THUMB_GRID');
+	var gridInner = grid.find('.THUMB_GRID_INNER');
+	var thumbList = grid.find('.THUMBS');
+	var thumbs = thumbList.children('li');
+	var thumbNav = grid.find('.THUMB_GRID_NAV');
+	function thumbGridInit() {
+		thumbGridSize();
 		thumbNav.find('a').click(function(e) {
 			e.preventDefault();
 			directionMultiplier = $(this).hasClass('PREV') ? '-1' : '1';
 			gridInner.animate({
-				scrollLeft: gridInner.scrollLeft() + (panelWidth * ($(this).hasClass('PREV') ? '-1' : '1'))
+				scrollLeft: thumbGridScrollDistance($(this))
 			}, 400, function() {
-				console.log(gridInner.scrollLeft());
 				thumbNavLinkVisibility();
 			});
 		});
-		if (panelWidth <= gridInner.width()) {
+	}
+	function thumbGridSize() {
+		gridCols = win.width() < 481 ? 3 : 4;
+		var containerWidth = gridInner.width();
+		var thumbWidth = containerWidth / gridCols;
+		var panelWidth = thumbWidth * thumbs.length;
+		panelWidth = panelWidth >= containerWidth ? panelWidth : containerWidth;
+		thumbs.width(thumbWidth);
+		thumbList.width(panelWidth);
+		thumbNavLinkVisibility();
+		if (panelWidth <= containerWidth) {
 			thumbNav.addClass('inactive');
 		} else {
 			thumbNav.removeClass('inactive');
 		}
 	}
-	thumbGrid();
+	function thumbGridScrollDistance(button) {
+		return gridInner.scrollLeft() + (gridInner.width() * (button.hasClass('PREV') ? '-1' : '1'));
+	}
+	function thumbGrid() {
+	}
+	thumbGridInit();
 	
 	function thumbNavLinkVisibility() {
 		var grid = $('.THUMB_GRID');
