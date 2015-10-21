@@ -16,12 +16,20 @@
 <?php get_header(); ?>
 
 						<main id="main" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+						
+							<?php 
+							$featuredPubs = get_posts(array(
+								'post_type' => array('publication'),
+								'numberposts' => 12,
+								'category_name' => 'featured'
+							));
+							if (count($featuredPubs) > 0) { 
+								thumbGrid($featuredPubs, 'Featured Publications', 'featured-publications');
+							} ?>
 
 							<?php if (have_posts()) : while (have_posts()) : the_post(); 
 								if (get_the_content()) { ?>
 								<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
-
-									<header class="article-header"></header>
 									<section class="entry-content cf" itemprop="articleBody">
 										<?php
 											// the content (pretty self explanatory huh)
@@ -32,17 +40,7 @@
 								<?php }
 							endwhile; endif; ?>
 							
-							<?php 
-							$featuredPubs = get_posts(array(
-								'post_type' => array('publication'),
-								'numberposts' => 12,
-								'category_name' => 'featured'
-							));
-							if(count($featuredPubs) > 0) { 
-								thumbGrid($featuredPubs, 'Featured Publications', 'featured-publications');
-							} ?>
-							
-							<?php include 'library/includes/newsletter-form.php'; ?>
+							<?php include get_stylesheet_directory().'/library/includes/newsletter-form.php'; ?>
 							
 						</main>
 

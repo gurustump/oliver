@@ -39,6 +39,7 @@
 								</section> <?php // end article section ?>
 
 								<footer class="article-footer cf">
+									<?php include get_stylesheet_directory().'/library/includes/newsletter-form.php'; ?>
 
 								</footer>
 
