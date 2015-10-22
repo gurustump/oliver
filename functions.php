@@ -238,10 +238,16 @@ external fonts. If you're using Google Fonts, you
 can replace these fonts, change it in your scss files
 and be up and running in seconds.
 */
+/* EXTRA NOTE
+Now using /library/js/libs/webfonts.js to load fonts
+That script, in turn, requires both jQuery and Google's Web Font Loader to be loaded before it can go
+Web Font Loader and webfonts.js are both enqueued in /library/bones.php, and webfonts.js is set to not load until its dependancies are ready
+*/
 function bones_fonts() {
-  wp_enqueue_style('googleFonts', 'https://fonts.googleapis.com/css?family=Montserrat:400,700|Fira+Sans:300,400|Merriweather:400,700,400italic,700italic');
+  //wp_enqueue_style('googleFonts', 'https://fonts.googleapis.com/css?family=Montserrat:400,700|Fira+Sans:300,400|Merriweather:400,700,400italic,700italic');
+  
 }
-add_action('wp_enqueue_scripts', 'bones_fonts');
+// add_action('wp_enqueue_scripts', 'bones_fonts');
 
 require_once( 'cmb-functions.php' );
 require_once( 'cmb2-extra-functions/cmb2_post_search_field.php' );

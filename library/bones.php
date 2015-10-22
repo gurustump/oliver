@@ -126,6 +126,12 @@ function bones_scripts_and_styles() {
 
 		// modernizr (without media query polyfill)
 		wp_register_script( 'bones-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), '2.5.3', false );
+		
+		// google Web Font Loader
+		wp_register_script( 'webFontLoader', 'https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js', array(), '', false );
+		
+		// internal font load directives that require jquery and google Web Font Loader
+		wp_register_script( 'webFonts', get_stylesheet_directory_uri() . '/library/js/libs/webfonts.js', array('jquery','webFontLoader'), '', false );
 
 		// register main stylesheet
 		wp_register_style( 'bones-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all' );
@@ -143,6 +149,8 @@ function bones_scripts_and_styles() {
 
 		// enqueue styles and scripts
 		wp_enqueue_script( 'bones-modernizr' );
+		wp_enqueue_script( 'webFontLoader' );
+		wp_enqueue_script( 'webFonts' );
 		wp_enqueue_style( 'bones-stylesheet' );
 		wp_enqueue_style( 'bones-ie-only' );
 

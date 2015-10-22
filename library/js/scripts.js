@@ -169,55 +169,7 @@ jQuery(document).ready(function($) {
 		}
 	});
 	
-	// Equal Heights - group must be a jQuery object. If masterElem is used, items in group will be set to masterElem's height. It should be a jQuery object with only one element in it. If outer is true, masterElem's outerHeight will be used. modifier is just a number to add or subtract to the masterElem height.
-	function equalHeight(group, reset, masterElem, outer, modifier) {
-		group.each(function() {
-			console.log($(this).outerHeight());
-		})
-		console.log(masterElem.outerHeight());
-		if (reset) {
-			group.css('height','auto');
-		}
-		if (masterElem.length > 0) {
-			var newHeight = outer ? masterElem.outerHeight() : masterElem.height();
-			if (modifier) {
-				newHeight += modifier;
-			}
-			group.css('height', newHeight);
-		} else {
-			var tallest = 0;
-			group.each(function() {
-				var thisHeight = $(this).outerHeight();
-				if(thisHeight > tallest) {
-					tallest = thisHeight;
-				}
-			});
-			group.css('height', tallest);
-		}
-	}
-	setSidebarHeight = function() {
-		if (mobileDeviceType() == 'mobile') {
-			$('#main, #sidebar').css('height', 'auto');
-		} else {
-			var modifier = parseInt($('#content').css('margin-bottom').replace('px', ''));
-			equalHeight($('#main, #sidebar'), true, $('#content'));
-		}
-	}
-	setSidebarHeight();
-	dammit = setSidebarHeight;
-	
-	function headerHeight() {
-		if (win.scrollTop() > 30) {
-			$('body').addClass('scrolled');
-		} else {
-			$('body').removeClass('scrolled');
-		}
-	}
-	headerHeight();
-	win.scroll(function() {
-		headerHeight();
-	});
-	
+	// For the panel of book cover thumbs on the home page and author pages. Creates a slider.
 	var grid = $('.THUMB_GRID');
 	var gridInner = grid.find('.THUMB_GRID_INNER');
 	var thumbList = grid.find('.THUMBS');
@@ -269,5 +221,66 @@ jQuery(document).ready(function($) {
 			thumbNav.find('.NEXT').addClass('inactive');
 		}
 	}
+	
+	// Equal Heights - group must be a jQuery object. If masterElem is used, items in group will be set to masterElem's height. It should be a jQuery object with only one element in it. If outer is true, masterElem's outerHeight will be used. modifier is just a number to add or subtract to the masterElem height.
+	function equalHeight(group, reset, masterElem, outer, modifier) {
+		group.each(function() {
+			console.log($(this).outerHeight());
+		})
+		console.log(masterElem.outerHeight());
+		if (reset) {
+			group.css('height','auto');
+		}
+		if (masterElem.length > 0) {
+			console.log('equal heights: master');
+			var newHeight = outer ? masterElem.outerHeight() : masterElem.height();
+			if (modifier) {
+				newHeight += modifier;
+			}
+			group.css('height', newHeight);
+		} else {
+			console.log('equal heights: plain group')
+			var tallest = 0;
+			group.each(function() {
+				var thisHeight = $(this).outerHeight();
+				if(thisHeight > tallest) {
+					tallest = thisHeight;
+				}
+			});
+			group.css('height', tallest);
+		}
+	}
+	setSidebarHeight = function() {
+		if (mobileDeviceType() == 'mobile') {
+			$('#main, #sidebar').css('height', 'auto');
+		} else {
+			// var modifier = parseInt($('#content').css('margin-bottom').replace('px', ''));
+			equalHeight($('#main, #sidebar'), true, $('#content'));
+		}
+	}
+	/* THIS REQUIRES Google's Web Font loader to run before it can go
+	The Web Font Loader script is enqueued in library/bones.php
+	The script that runs that actually loads up the fonts we're using is also enqueued in library/bones.php, and is located in library/js/libs/webfonts.js
+	It makes use of jQuery's $.callbacks() to defer the running of the setSidebarHeight() function until the fonts are loaded
+	see http://stackoverflow.com/questions/11941883/call-jquery-function-after-fonts-are-loaded
+	also see https://github.com/typekit/webfontloader for instructions on using Web Font Loader
+	*/
+	activeCallback.add(function() {
+		setSidebarHeight();
+    });
+	
+	function headerHeight() {
+		if (win.scrollTop() > 30) {
+			$('body').addClass('scrolled');
+		} else {
+			$('body').removeClass('scrolled');
+		}
+	}
+	headerHeight();
+	win.scroll(function() {
+		headerHeight();
+	});
 
 }); /* end of as page load scripts */
+
+
