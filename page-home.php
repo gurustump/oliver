@@ -40,7 +40,13 @@
 								<?php }
 							endwhile; endif; ?>
 							
-							<?php include get_stylesheet_directory().'/library/includes/newsletter-form.php'; ?>
+							<?php 
+							$newsletterForm = get_posts(array(
+								'name' => 'newsletter-signup',
+								'post_type' => 'module',
+								'numberposts' => 1
+							));
+							echo $newsletterForm[0]->post_content; ?>
 							
 						</main>
 

@@ -291,6 +291,26 @@ POSTS & CONTENT STYLES
 .newsletter-signup .input-container {
   padding-right: 150px;
 }
+/* line 143, ../scss/breakpoints/_481up.scss */
+.newsletter-signup .input-container input {
+  margin-bottom: 0;
+}
+
+/* line 148, ../scss/breakpoints/_481up.scss */
+.newsletter-archives {
+  position: relative;
+}
+/* line 150, ../scss/breakpoints/_481up.scss */
+.newsletter-archives h2 {
+  padding-right: 150px;
+  float: left;
+}
+/* line 154, ../scss/breakpoints/_481up.scss */
+.newsletter-archives .btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
 
 /*********************
 FOOTER STYLES

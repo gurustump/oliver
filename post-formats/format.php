@@ -60,7 +60,13 @@
                 </section> <?php // end article section ?>
 
                 <footer class="article-footer">
-					<?php include get_stylesheet_directory().'/library/includes/newsletter-form.php'; ?>
+					<?php 
+					$newsletterForm = get_posts(array(
+						'name' => 'newsletter-signup',
+						'post_type' => 'module',
+						'numberposts' => 1
+					));
+					echo $newsletterForm[0]->post_content; ?>
 
 					<?php /*
                   <?php printf( __( 'filed under', 'bonestheme' ).': %1$s', get_the_category_list(', ') ); ?>

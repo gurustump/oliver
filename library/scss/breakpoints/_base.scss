@@ -107,7 +107,7 @@ a {
 	@include transition(color .35s, background-color .35s);
 
 	/* on hover */
-	&:hover, &:focus {
+	&:hover {
 		color:$link-hover;
 	}
 
@@ -776,6 +776,16 @@ POSTS & CONTENT STYLES
 	}
 	.btn {
 		float:right;
+	}
+}
+.newsletter-archives {
+	margin-top:15px;
+	border-top:1px solid $gray;
+	padding-top:15px;
+	@include clearfix;
+	h2 {
+		font-size:1.3em;
+		margin-bottom:0;
 	}
 }
 

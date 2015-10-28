@@ -140,6 +140,21 @@ POSTS & CONTENT STYLES
 .newsletter-signup {
 	.input-container {
 		padding-right:150px;
+		input {
+			margin-bottom:0;
+		}
+	}
+}
+.newsletter-archives {
+	position:relative;
+	h2 {
+		padding-right:150px;
+		float:left;
+	}
+	.btn {
+		position:absolute;
+		bottom:0;
+		right:0;
 	}
 }
 
