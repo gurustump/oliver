@@ -86,7 +86,7 @@ register_taxonomy( 'publication_cat',
 			'new_item_name' => __( 'New Publication Category Name', 'bonestheme' )
 		),
 		'show_admin_column' => true, 
-		'show_ui' => false,
+		'show_ui' => true,
 		'query_var' => true,
 		'rewrite' => array( 'slug' => 'publication-cat' ),
 	)

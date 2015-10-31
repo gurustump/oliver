@@ -73,6 +73,13 @@ function oliver_register_publications_metabox() {
 	) );
 
 	$cmb_publication->add_field( array(
+		'name'       => __( 'Featured Order', 'cmb2' ),
+		'desc'       => __( '*REQUIRED FOR ITEMS IN FEATURED CATEGORY. Enter a number. Lower numbers show first in the Featured Publications slider on the home page.<br />If this publication is not in the Featured Category, this field is ignored.', 'cmb2' ),
+		'id'         => $prefix . 'featured_order',
+		'type'       => 'text_small',
+	) );
+
+	$cmb_publication->add_field( array(
 		'name'		=> __( 'Author ID', 'cmb2' ),
 		'desc'       => __( 'Click on the magnifying glass and select the author of this publication from the list. If the author is there, you must first add the author to the site.', 'cmb2' ),
 		'id' 			=> $prefix . 'author_ID',

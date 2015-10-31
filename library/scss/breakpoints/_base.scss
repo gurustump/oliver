@@ -466,13 +466,11 @@ POSTS & CONTENT STYLES
 			@extend %prettylink;
 		}
 	}
-	.pages, .price, .isbn {
+	.pages, .price, .isbn, .pub-cats {
 		font-size:11px;
 	}
-	.pages, .price {
-		margin-right:2px;
-		border-right:1px solid $light-gray;
-		padding-right:2px;
+	.pages, .price, .isbn {
+		padding-right:7px;
 	}
 
 	time {}
@@ -554,7 +552,7 @@ POSTS & CONTENT STYLES
 		margin: 0 0 1.5em 0.75em;
 		padding: 0 0 0 0.75em;
 		border-left:1px dotted $red;
-		font-style: italic;
+		// font-style: italic;
 		color:$meta-gray;
 
 		&:before {}
@@ -739,9 +737,49 @@ POSTS & CONTENT STYLES
 		}
 	}
 }
+.filters {
+	margin-bottom:15px;
+	font-family:$button;
+	.filter-head {
+		display:block;
+		margin-bottom:10px;
+		.genre {
+			@include tri(bottom, 5px, 5px, $red, 0 0 0 3px);
+			outline:none;
+			&.open {
+				&:after {
+					border-top:0;
+					border-bottom:5px solid $red;
+				}
+			}
+		}
+	}
+	.filter-controls {
+		max-height:0;
+		opacity:0;
+		overflow:hidden;
+		@include transition(max-height .5s, opacity .35s);
+		&.open {
+			max-height:250px;
+			opacity:1;
+		}
+	}
+	.btn {
+		display:block;
+		margin-bottom:3px;
+		&.active {
+			@extend .btn-blue;
+		}
+	}
+}
 .row-index {
 	.row-index-inner {
 		& > ul {
+			&.filter-list {
+				& > .inactive {
+					display:none;
+				}
+			}
 			& > li {
 				padding-bottom:20px;
 				border-bottom:1px solid $gray;
@@ -787,6 +825,9 @@ POSTS & CONTENT STYLES
 		font-size:1.3em;
 		margin-bottom:0;
 	}
+}
+.wpcf7 {
+	margin-bottom:1.5em;
 }
 
 /******************************************************************
@@ -1315,7 +1356,7 @@ html body {
 		&.hidden {
 			border-bottom:2px solid transparent;
 			@include transform(translateY(-97%));
-			@include transition(transform, 1s);
+			@include transition(transform, 2s);
 		}
 	}
 	&.hide-admin-bar {

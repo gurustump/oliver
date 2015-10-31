@@ -35,7 +35,8 @@ HEADER STYLES
 	height:auto;
 	a {
 		text-indent:-9999px;
-		height:150px;
+		border-top:20px solid #fff;
+		height:140px;
 		position:relative;
 		@include box-sizing;
 		@include transition(height .35s);
@@ -45,7 +46,7 @@ HEADER STYLES
 			bottom:0;
 			display:block;
 			background:url(../images/ampersand-logo.png) no-repeat 0 100%;
-			width:185px;
+			width:150px;
 			height:100%;
 			/*background:url(../images/hairlines_140px.png) no-repeat 0 100%;
 			width:266px;
@@ -55,7 +56,7 @@ HEADER STYLES
 		}
 		.logo-text {
 			position:absolute;
-			left:340px;
+			left:320px;
 			width:535px;
 			max-width:none;
 			height:100%;
@@ -66,7 +67,7 @@ HEADER STYLES
 body.scrolled {
 	#logo {
 		a {
-			height:70px;
+			height:90px;
 			.desktop-logo {
 				width:90px;
 			}
@@ -83,7 +84,7 @@ body.scrolled {
 NAVIGATION STYLES
 *********************/
 #content {
-	padding-top:150px;
+	padding-top:140px;
 	@include transition(padding .35s);
 	#inner-content {
 		margin:0 auto;

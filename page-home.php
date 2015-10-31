@@ -21,7 +21,10 @@
 							$featuredPubs = get_posts(array(
 								'post_type' => array('publication'),
 								'numberposts' => 12,
-								'category_name' => 'featured'
+								'category_name' => 'featured',
+								'order' => 'ASC',
+								'orderby' => 'meta_value_num',
+								'meta_key' => '_oliver_publications_featured_order'
 							));
 							if (count($featuredPubs) > 0) { 
 								thumbGrid($featuredPubs, 'Featured Publications', 'featured-publications');

@@ -30,6 +30,13 @@
 							/*echo '<pre style="border:1px solid #ccc;padding:20px">';
 							print_r($links); 
 							echo '</pre>';*/
+							$thisPubCats = get_the_terms(get_the_ID(), 'publication_cat');
+							$pubCatsHumanStr = '';
+							if ($thisPubCats[0]) {
+								foreach($thisPubCats as $k => $pubCat) {
+									$pubCatsHumanStr .= $pubCat->name . ($k + 1 == count($thisPubCats) ? '' : ', ');
+								}
+							}
 							?>
 							<article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article">
 
@@ -49,6 +56,9 @@
 										<?php } ?>
 										<?php if ($meta[_oliver_publications_isbn][0]) { ?>
 										<span class="isbn">ISBN: <?php echo $meta[_oliver_publications_isbn][0]; ?></span>
+										<?php } ?>
+										<?php if ($pubCatsHumanStr != '') { ?>
+										<span class="pub-cats"><?php echo $pubCatsHumanStr; ?></span>
 										<?php } ?>
 									</p>
 									<?php } ?>
@@ -80,7 +90,7 @@
 
 								<footer class="article-footer">
 									<?php if ($author) { ?>
-									<div class="about-author">
+									<div class="about-author entry-content">
 										<a class="author-img" href="<?php echo get_the_permalink($author->ID); ?>">
 											<?php echo get_the_post_thumbnail($author->ID, 'thumbnail', array('class' => 'alignright')); ?>
 										</a>

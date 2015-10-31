@@ -38,20 +38,45 @@
 										'post_type' => array('publication'),
 										'numberposts' => -1,
 									));
+									$pubCats = get_terms('publication_cat');
 									if(count($pubs) > 0) { ?>
-										<div class="films-list row-index">
+										<div class="filters FILTERS">
+											<span class="filter-head">Filter by Genre: <a href="#" class="genre GENRE">All</a></span>
+											<div class="filter-controls FILTER_CONTROLS">
+												<a class="btn btn-small active" id="filter_ALL" href="#">All</a>
+												<?php foreach($pubCats as $pubCat) { ?>
+													<a class="btn btn-small" id="filter_<?php echo str_replace('-','_',strtoupper($pubCat->slug)); ?>" href="#"><?php echo $pubCat->name; ?></a>
+												<?php } ?>
+											</div>
+										</div>
+										<div class="row-index">
 											<div class="row-index-inner">
-												<ul>
+												<ul class="filter-list FILTER_LIST">
 												<?php global $post;
 												foreach($pubs as $key => $item) {
 													$post = $item;
 													setup_postdata($post);
-													$meta = get_post_meta($item->ID); 
+													$meta = get_post_meta($item->ID);
+													/*
+													echo '<pre>';
+													print_r($thisPubCats);
+													echo '</pre>';
+													*/
 													$author = get_post($meta[_oliver_publications_author_ID][0]);
 													$author = $author->ID == $item->ID ? false : $author;
 													$links = get_post_meta($item->ID, '_oliver_publications_links', true);
-													$itemThumbArray = wp_get_attachment_image_src( get_post_thumbnail_id($item->ID), 'cover-small'); ?>
-													<li>
+													$itemThumbArray = wp_get_attachment_image_src( get_post_thumbnail_id($item->ID), 'cover-small');
+													$thisPubCats = get_the_terms($item->ID, 'publication_cat');
+													$pubCatsStr = '';
+													$pubCatsHumanStr = '';
+													if ($thisPubCats[0]) {
+														foreach($thisPubCats as $k => $pubCat) {
+															$pubCatsStr .= str_replace('-','_',strtoupper($pubCat->slug)) . ($k + 1 == count($thisPubCats) ? '' : ' ');
+															$pubCatsHumanStr .= $pubCat->name . ($k + 1 == count($thisPubCats) ? '' : ', ');
+														}
+													}
+													?>
+													<li<?php echo $pubCatsStr != '' ? ' class="'. $pubCatsStr . '"' : ''; ?>>
 														<a class="img-container" href="<?php the_permalink(); ?>">
 															<img class="item-thumb" src="<?php echo $itemThumbArray[0]; ?>" />
 														</a>
@@ -70,6 +95,9 @@
 																<?php } ?>
 																<?php if ($meta[_oliver_publications_isbn][0]) { ?>
 																<span class="isbn">ISBN: <?php echo $meta[_oliver_publications_isbn][0]; ?></span>
+																<?php } ?>
+																<?php if ($pubCatsHumanStr != '') { ?>
+																<span class="pub-cats"><?php echo $pubCatsHumanStr; ?></span>
 																<?php } ?>
 															</p>
 															<?php } ?>

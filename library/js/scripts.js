@@ -112,6 +112,10 @@ jQuery(document).ready(function($) {
 	
 	var win = $(window);
 	
+	// Check what page we're on
+	if (typeof isHome === "undefined") var isHome = $('body').hasClass('home');
+	if (typeof isListPage === "undefined") var isListPage = $('body').hasClass('page-template-page-list');
+	
 	/*
 	* Let's fire off the gravatar function
 	* You can remove this if you don't need it
@@ -224,15 +228,15 @@ jQuery(document).ready(function($) {
 	
 	// Equal Heights - group must be a jQuery object. If masterElem is used, items in group will be set to masterElem's height. It should be a jQuery object with only one element in it. If outer is true, masterElem's outerHeight will be used. modifier is just a number to add or subtract to the masterElem height.
 	function equalHeight(group, reset, masterElem, outer, modifier) {
-		group.each(function() {
+		/*group.each(function() {
 			console.log($(this).outerHeight());
 		})
-		console.log(masterElem.outerHeight());
+		console.log(masterElem.outerHeight());*/
 		if (reset) {
 			group.css('height','auto');
 		}
 		if (masterElem.length > 0) {
-			console.log('equal heights: master');
+			// console.log('equal heights: master');
 			var newHeight = outer ? masterElem.outerHeight() : masterElem.height();
 			if (modifier) {
 				newHeight += modifier;
@@ -280,6 +284,30 @@ jQuery(document).ready(function($) {
 	win.scroll(function() {
 		headerHeight();
 	});
+	
+	// **PAGE SPECIFIC**
+	// List Page
+	if (isListPage) {
+		var filters = $('.FILTERS');
+		var controls = filters.find('.FILTER_CONTROLS');
+		var list = $('.FILTER_LIST');
+		var genre = filters.find('.GENRE');
+		filters.on('click', '.GENRE', function(e) {
+			e.preventDefault();
+			$(this).add(controls).toggleClass('open');
+		});
+		controls.on('click', '.btn', function(e) {
+			e.preventDefault();
+			$(this).addClass('active').siblings().removeClass('active');
+			genre.text($(this).text()).add(controls).removeClass('open');
+			if ($(this).is('#filter_ALL')) {
+				list.children('li').removeClass('inactive');
+			} else {
+				list.children('li').addClass('inactive');
+				list.children('li.'+$(this).attr('id').replace('filter_','')).removeClass('inactive');
+			}
+		});
+	}
 
 }); /* end of as page load scripts */
 
