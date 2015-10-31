@@ -614,6 +614,11 @@ POSTS & CONTENT STYLES
 		margin: 0 0 1.5em;
 		border-radius: 3px;
 	}
+	
+	/* Contact form */
+	.wpcf7 {
+		margin-bottom:1.5em;
+	}
 
 } /* end .entry-content */
 
@@ -629,7 +634,9 @@ POSTS & CONTENT STYLES
 	max-width: 100%;
 	background: #eee;
 	padding: 5px;
-
+	&.alignleft, &.alignright {
+		margin-bottom:1em;
+	}
 	/* images inside wp-caption */
 	img {
 		max-width: 100%;
@@ -825,9 +832,6 @@ POSTS & CONTENT STYLES
 		font-size:1.3em;
 		margin-bottom:0;
 	}
-}
-.wpcf7 {
-	margin-bottom:1.5em;
 }
 
 /******************************************************************
