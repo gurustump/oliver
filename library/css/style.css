@@ -3202,28 +3202,32 @@ body.single-publication .hentry .post-thumb-container .link-container-lower, bod
 /* line 1399, ../scss/breakpoints/_base.scss */
 body.single-publication .hentry .post-thumb-container .btn, body.single-pub_author .hentry .post-thumb-container .btn {
   display: block;
+  padding-left: 6px;
+  padding-right: 6px;
+  white-space: nowrap;
+  overflow: hidden;
 }
-/* line 1410, ../scss/breakpoints/_base.scss */
+/* line 1414, ../scss/breakpoints/_base.scss */
 body.single-publication .article-footer img, body.single-pub_author .article-footer img {
   margin: 0 0 1em 0;
   max-width: 100%;
   height: auto;
 }
-/* line 1415, ../scss/breakpoints/_base.scss */
+/* line 1419, ../scss/breakpoints/_base.scss */
 body.single-publication .article-footer img.alignright, body.single-publication .article-footer img.alignleft, body.single-pub_author .article-footer img.alignright, body.single-pub_author .article-footer img.alignleft {
   max-width: 45%;
 }
-/* line 1418, ../scss/breakpoints/_base.scss */
+/* line 1422, ../scss/breakpoints/_base.scss */
 body.single-publication .article-footer img.alignleft, body.single-pub_author .article-footer img.alignleft {
   float: left;
   margin-right: 1em;
 }
-/* line 1422, ../scss/breakpoints/_base.scss */
+/* line 1426, ../scss/breakpoints/_base.scss */
 body.single-publication .article-footer img.alignright, body.single-pub_author .article-footer img.alignright {
   float: right;
   margin-left: 1em;
 }
-/* line 1428, ../scss/breakpoints/_base.scss */
+/* line 1432, ../scss/breakpoints/_base.scss */
 body.single-publication .article-footer .author-img img, body.single-pub_author .article-footer .author-img img {
   width: 120px;
   -webkit-border-radius: 50%;
@@ -3236,35 +3240,35 @@ body.single-publication .article-footer .author-img img, body.single-pub_author 
 /*********************
 BLOG (NEWS & REVIEWS) PAGE
 *********************/
-/* line 1441, ../scss/breakpoints/_base.scss */
+/* line 1445, ../scss/breakpoints/_base.scss */
 body.blog #main .hentry {
   border-bottom: 3px double #eaeaea;
   margin-bottom: 2.5em;
 }
 
-/* line 1449, ../scss/breakpoints/_base.scss */
+/* line 1453, ../scss/breakpoints/_base.scss */
 body.search-results #main .entry-header {
   margin-bottom: .5em;
 }
-/* line 1452, ../scss/breakpoints/_base.scss */
+/* line 1456, ../scss/breakpoints/_base.scss */
 body.search-results #main .entry-title {
   border-bottom: 1px solid #eaeaea;
   margin-bottom: .5em;
 }
 
-/* line 1460, ../scss/breakpoints/_base.scss */
+/* line 1464, ../scss/breakpoints/_base.scss */
 body.page-template-page-list .entry-content .byline {
   margin-bottom: 1em;
 }
-/* line 1463, ../scss/breakpoints/_base.scss */
+/* line 1467, ../scss/breakpoints/_base.scss */
 body.page-template-page-list .entry-content .item-body {
   margin-top: 1em;
 }
-/* line 1466, ../scss/breakpoints/_base.scss */
+/* line 1470, ../scss/breakpoints/_base.scss */
 body.page-template-page-list .entry-content .link-container {
   float: right;
 }
-/* line 1468, ../scss/breakpoints/_base.scss */
+/* line 1472, ../scss/breakpoints/_base.scss */
 body.page-template-page-list .entry-content .link-container .btn {
   float: left;
   margin-left: 8px;

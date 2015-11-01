@@ -1398,6 +1398,10 @@ body.single-publication, body.single-pub_author {
 			}
 			.btn {
 				display:block;
+				padding-left:6px;
+				padding-right:6px;
+				white-space:nowrap;
+				overflow:hidden;
 			}
 		}
 	}
