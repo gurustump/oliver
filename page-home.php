@@ -16,7 +16,23 @@
 <?php get_header(); ?>
 
 						<main id="main" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
-						
+
+							<?php if (have_posts()) : while (have_posts()) : the_post(); 
+								if (get_the_content()) { ?>
+								<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+									<header class="article-header">
+										<p class="h1 page-title single-title" itemprop="headline"><?php the_title(); ?></p>
+									</header> <?php // end article header ?>
+									<section class="entry-content cf" itemprop="articleBody">
+										<?php
+											// the content (pretty self explanatory huh)
+											the_content();
+										?>
+									</section>
+								</article>
+								<?php }
+							endwhile; endif; ?>
+							
 							<?php 
 							$featuredPubs = get_posts(array(
 								'post_type' => array('publication'),
@@ -29,19 +45,6 @@
 							if (count($featuredPubs) > 0) { 
 								thumbGrid($featuredPubs, 'Featured Publications', 'featured-publications');
 							} ?>
-
-							<?php if (have_posts()) : while (have_posts()) : the_post(); 
-								if (get_the_content()) { ?>
-								<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
-									<section class="entry-content cf" itemprop="articleBody">
-										<?php
-											// the content (pretty self explanatory huh)
-											the_content();
-										?>
-									</section>
-								</article>
-								<?php }
-							endwhile; endif; ?>
 							
 							<?php 
 							$newsletterForm = get_posts(array(
