@@ -331,8 +331,10 @@ class oilve_recommended extends WP_Widget {
 		$pubs = get_posts(array(
 			'post_type' => array('publication'),
 			'numberposts' => $number_of_posts,
-			'orderby' => 'rand',
-			'category_name' => 'recommended'
+			'category_name' => 'recommended',
+			'order' => 'ASC',
+			'orderby' => 'meta_value_num',
+			'meta_key' => '_oliver_publications_recommended_order'
 		));
 		
 		if (count($pubs) > 0) {

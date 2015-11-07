@@ -80,6 +80,13 @@ function oliver_register_publications_metabox() {
 	) );
 
 	$cmb_publication->add_field( array(
+		'name'       => __( 'Recommended Order', 'cmb2' ),
+		'desc'       => __( '*REQUIRED FOR ITEMS IN RECOMMENDED CATEGORY. Enter a number. Lower numbers show first in the Recommended Publications widget in the left column.<br />If this publication is not in the Recommended Category, this field is ignored.', 'cmb2' ),
+		'id'         => $prefix . 'recommended_order',
+		'type'       => 'text_small',
+	) );
+
+	$cmb_publication->add_field( array(
 		'name'		=> __( 'Author ID', 'cmb2' ),
 		'desc'       => __( 'Click on the magnifying glass and select the author of this publication from the list. If the author is there, you must first add the author to the site.', 'cmb2' ),
 		'id' 			=> $prefix . 'author_ID',
