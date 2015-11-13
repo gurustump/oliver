@@ -482,7 +482,7 @@ POSTS & CONTENT STYLES
 	p {
 		margin: 0 0 1.5em;
 	}
-	*:last-child {
+	& > *:last-child {
 		margin-bottom:0;
 	}
 
@@ -618,6 +618,20 @@ POSTS & CONTENT STYLES
 	/* Contact form */
 	.wpcf7 {
 		margin-bottom:1.5em;
+		.wpcf7-not-valid-tip {
+			font-family:$button;
+			font-size:10px;
+			text-transform:uppercase;
+			color:$red;
+			margin-top:-10px;
+		}
+		.wpcf7-response-output {
+			font-family:$button;
+			font-size:12px;
+			margin-left:0;
+			margin-right:0;
+			@include border-radius(3px);
+		}
 	}
 
 } /* end .entry-content */
